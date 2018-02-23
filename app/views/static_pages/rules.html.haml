@@ -1,0 +1,47 @@
+.jumbotron.jumbotron-fluid
+  .container
+    %h1.display-4 Basic rules
+    %p.lead
+      .media
+        .media-body
+          %h5.mt-0 Basic rules
+          %p Ranking points are evaluated from 10 top ascents of each user. Points are dependend from style and grade of a route.
+      %ul.list-unstyled
+        %li.media
+          .media-body
+            %h5.mt-0.mb-1 Styles
+            %h5.mt-0.mb-1 There are 3 styles
+            %ul
+              %li RP - red point
+              %li OS - on sight +150 points
+              %li FL - Flash + 50 points
+            %br/
+        %h5.mt-0.mb-1 Grades
+        %table
+          %colgroup
+            %col{:span => "2", :style => "background-color:green"}/
+            %col{:style => "background-color:yellow"}/
+          %tr
+            %th Grade
+            %th Points
+          %tr
+            %td 6a
+            %td 100
+          %tr
+            %td 6a+
+            %td 150
+          %tr
+            %td 6b
+            %td 200
+          %tr
+            %td 6b+
+            %td 250
+          %tr
+            %td 6c
+            %td 300
+          %tr
+            %td 6c+
+            %td 350
+          %tr
+            %td 7a
+            %td 400
