@@ -10,7 +10,11 @@
       %li.nav-item
         =link_to 'Contact', contact_path, class: 'nav-link'
       %li.nav-item
-        %a.nav-link{href: "#"} About
+        =link_to 'About', about_path, class: 'nav-link'
+      %li.nav-item
+        =link_to 'Rules', rules_path, class: 'nav-link'
+      %li.nav-item
+        =link_to 'Crags', crags_path, class: 'nav-link'
       %li.nav-item
         %a.nav-link.disabled{href: "#"} Disabled
       - if current_user
