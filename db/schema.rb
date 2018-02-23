@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223105745) do
+ActiveRecord::Schema.define(version: 20180223135608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,10 +23,20 @@ ActiveRecord::Schema.define(version: 20180223105745) do
     t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "route_id"
     t.bigint "user_id"
-    t.index ["route_id"], name: "index_ascents_on_route_id"
+    t.bigint "climbing_routes_id"
+    t.index ["climbing_routes_id"], name: "index_ascents_on_climbing_routes_id"
     t.index ["user_id"], name: "index_ascents_on_user_id"
+  end
+
+  create_table "climbing_routes", force: :cascade do |t|
+    t.string "name"
+    t.string "grade"
+    t.integer "number_of_ascents"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "sector_id"
+    t.index ["sector_id"], name: "index_climbing_routes_on_sector_id"
   end
 
   create_table "crags", force: :cascade do |t|
@@ -36,16 +46,6 @@ ActiveRecord::Schema.define(version: 20180223105745) do
     t.float "y"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "routes", force: :cascade do |t|
-    t.string "name"
-    t.string "grade"
-    t.integer "number_of_ascents"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "sector_id"
-    t.index ["sector_id"], name: "index_routes_on_sector_id"
   end
 
   create_table "sectors", force: :cascade do |t|
@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(version: 20180223105745) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "ascents", "routes"
+  add_foreign_key "ascents", "climbing_routes", column: "climbing_routes_id"
   add_foreign_key "ascents", "users"
-  add_foreign_key "routes", "sectors"
+  add_foreign_key "climbing_routes", "sectors"
   add_foreign_key "sectors", "crags"
 end
