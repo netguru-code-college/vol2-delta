@@ -5,11 +5,10 @@
   #navbarNav.collapse.navbar-collapse
     %ul.navbar-nav
       %li.nav-item.active
-        %a.nav-link{href: "#"}
-          Home
-          %span.sr-only (current)
+        =link_to 'Home', root_path, class: 'nav-link'
+        %span.sr-only (current)
       %li.nav-item
-        %a.nav-link{href: "#"} Contact
+        =link_to 'Contact', contact_path, class: 'nav-link'
       %li.nav-item
         %a.nav-link{href: "#"} About
       %li.nav-item
