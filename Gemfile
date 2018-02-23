@@ -51,4 +51,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'haml-rails', '~> 1.0'
+gem 'bootstrap', '~> 4.0.0'
+gem 'draper', '~> 3.0', '>= 3.0.1'
+gem 'jquery-rails'
 gem 'gmaps4rails', '~> 2.1.2'
