@@ -1,4 +1,4 @@
 class Ascent < ApplicationRecord
   belongs_to :user
-  belongs_to :route
+  belongs_to :climbing_route
 end

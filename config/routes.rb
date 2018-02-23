@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :crags do
     resources :sectors do
-      resources :routes do
+      resources :climbing_routes do
         resources :ascents
       end
     end
