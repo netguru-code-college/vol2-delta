@@ -1,0 +1,2 @@
+class RouteGrade < ApplicationRecord
+end

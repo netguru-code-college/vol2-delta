@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223105745) do
+ActiveRecord::Schema.define(version: 20180223135654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ascent_styles", force: :cascade do |t|
+    t.string "style"
+    t.integer "points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "ascents", force: :cascade do |t|
     t.string "grade"
@@ -34,6 +41,13 @@ ActiveRecord::Schema.define(version: 20180223105745) do
     t.string "country"
     t.float "x"
     t.float "y"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "route_grades", force: :cascade do |t|
+    t.string "Grade"
+    t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
