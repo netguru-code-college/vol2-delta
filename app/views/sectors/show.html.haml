@@ -11,3 +11,5 @@
       =@sector.y
       %h3 Sector crag:
       =@sector.crag.name
+      =link_to 'Edit', edit_crag_sector_path(@sector.crag, @sector)
+      =link_to 'Delete', crag_sector_path(@sector.crag, @sector), method: :delete, data: {confirm: 'Are you sure'}

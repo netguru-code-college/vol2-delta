@@ -16,6 +16,8 @@
       %li.nav-item
         =link_to 'Crags', crags_path, class: 'nav-link'
       %li.nav-item
+        = link_to "Sectors", sectors_path, class: "nav-link"
+      %li.nav-item
         %a.nav-link.disabled{href: "#"} Disabled
       - if current_user
         =current_user.email
