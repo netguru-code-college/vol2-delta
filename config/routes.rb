@@ -6,4 +6,12 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_pages#contact'
   get '/rules', to: 'static_pages#rules'
   get '/about', to: 'static_pages#about'
+
+  resources :crags do
+    resources :sectors do
+      resources :routes do
+        resources :ascents
+      end
+    end
+  end
 end
