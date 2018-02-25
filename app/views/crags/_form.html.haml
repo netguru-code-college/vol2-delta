@@ -1,0 +1,10 @@
+= form_for @crag do |f|
+  - if @crag.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@crag.errors.count, "error")} prohibited this crag from being saved:"
+      %ul
+        - @crag.errors.full_messages.each do |message|
+          %li= message
+
+  .actions
+    = f.submit 'Save'

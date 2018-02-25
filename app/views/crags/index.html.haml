@@ -1,0 +1,19 @@
+%h1 Listing crags
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @crags.each do |crag|
+      %tr
+        %td= link_to 'Show', crag
+        %td= link_to 'Edit', edit_crag_path(crag)
+        %td= link_to 'Destroy', crag, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Crag', new_crag_path
