@@ -1,0 +1,16 @@
+%div#map{style: 'width: 400px; height: 400px'}
+
+= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyC45i8eK182AaWqEcDddgIasweTk868jhk"
+= javascript_include_tag "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"
+= javascript_include_tag "//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js"
+
+:javascript
+  var handler = Gmaps.build('Google');
+  handler.buildMap({ internal: {id: 'map'}}, function(){
+    var markers = handler.addMarkers([
+      { lat: 43, lng: 3.5},
+      { lat: 45, lng: 4},
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
