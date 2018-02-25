@@ -7,15 +7,7 @@
 :javascript
   var handler = Gmaps.build('Google');
   handler.buildMap({ internal: {id: 'map'}}, function(){
-
-    $.getJSON('crags.json', function (data) {
-      console.log(data);
-    });
-
-    var markers = handler.addMarkers([
-      { lat: 43, lng: 3.5},
-      { lat: 45, lng: 4},
-    ]);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
+  var markers = handler.addMarkers(#{raw @crags_hash.to_json});
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
   });
