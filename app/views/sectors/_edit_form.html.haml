@@ -1,4 +1,4 @@
-=form_for @sector do |f|
+=form_for @sector, url: crag_sector_path(@sector.crag, @sector) do |f|
 
   =f.label :crag_id, class: 'form-group'
   =f.text_field :crag_id, class: 'form-control'
@@ -9,11 +9,11 @@
   =f.label :aspect, class: 'form-group'
   =f.text_field :aspect, class: 'form-control'
 
-  =f.label :x, class: 'form-group'
-  =f.text_field :x, class: 'form-control'
+  =f.label :latitude, class: 'form-group'
+  =f.text_field :latitude, class: 'form-control'
 
-  =f.label :y, class: 'form-group'
-  =f.text_field :y, class: 'form-control'
+  =f.label :longitude, class: 'form-group'
+  =f.text_field :longitude, class: 'form-control'
   %br/
   .form-group
     =f.submit class: 'btn btn-success'

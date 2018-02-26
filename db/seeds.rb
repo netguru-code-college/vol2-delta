@@ -19,6 +19,8 @@ puts '10 Crags created!'
   Sector.create(
     name: Faker::BossaNova.song,
     aspect: Faker::Cat.breed,
+    latitude: rand(1..100),
+    longitude: rand,
     crag_id: rand(10)
   )
 end

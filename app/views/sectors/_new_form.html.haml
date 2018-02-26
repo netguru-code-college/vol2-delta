@@ -1,0 +1,19 @@
+=form_for @sector do |f|
+
+  =f.label :crag_id, class: 'form-group'
+  =f.text_field :crag_id, class: 'form-control'
+
+  =f.label :name, class: 'form-group'
+  =f.text_field :name, class: 'form-control'
+
+  =f.label :aspect, class: 'form-group'
+  =f.text_field :aspect, class: 'form-control'
+
+  =f.label :latitude, class: 'form-group'
+  =f.text_field :latitude, class: 'form-control'
+
+  =f.label :longitude, class: 'form-group'
+  =f.text_field :longitude, class: 'form-control'
+  %br/
+  .form-group
+    =f.submit class: 'btn btn-success'

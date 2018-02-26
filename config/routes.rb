@@ -17,3 +17,4 @@ Rails.application.routes.draw do
   resources :sectors, only: [:new, :create]
   get '/sectors', to: 'sectors#index'
 end
+d

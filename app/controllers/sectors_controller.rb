@@ -1,5 +1,5 @@
 class SectorsController < ApplicationController
-  before_action :set_sector, only: [:show, :edit, :destroy]
+  before_action :set_sector, only: [:show, :edit, :update, :destroy]
 
   def index
     @sectors = Sector.all
@@ -15,7 +15,7 @@ class SectorsController < ApplicationController
   def create
     @sector = Sector.new(sector_params)
     if @sector.save
-      redirect root_path
+      redirect_to sectors_path
     else
       render 'new'
     end
@@ -25,11 +25,16 @@ class SectorsController < ApplicationController
   end
 
   def update
+    if @sector.update(sector_params)
+      redirect_to sectors_url
+    else
+      render 'edit'
+    end
   end
 
   def destroy
     @sector.destroy
-      redirect
+      redirect_to sectors_url
   end
   private
 
@@ -38,6 +43,6 @@ class SectorsController < ApplicationController
   end
 
   def sector_params
-    params.require(:sector).permit(:name, :aspect, :x, :y, :crag_id)
+    params.require(:sector).permit(:name, :aspect, :latitude, :longitude, :crag_id)
   end
 end
