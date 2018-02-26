@@ -1,4 +1,5 @@
 class CragsController < ApplicationController
+
   before_action :set_crag, only: [:show, :edit, :update, :destroy]
 
   # GET /crags
@@ -17,6 +18,7 @@ class CragsController < ApplicationController
   # GET /crags/1
   # GET /crags/1.json
   def show
+    @crag = Crag.find(params[:id])
   end
 
   # GET /crags/new
