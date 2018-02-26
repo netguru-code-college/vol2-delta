@@ -9,10 +9,11 @@ class SectorsController < ApplicationController
   end
 
   def new
-    @sector = Sector.new(sector_params)
+    @sector = Sector.new
   end
 
   def create
+    @sector = Sector.new(sector_params)
     if @sector.save
       redirect root_path
     else
