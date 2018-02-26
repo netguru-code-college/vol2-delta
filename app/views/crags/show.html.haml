@@ -3,11 +3,12 @@
 .jumbotron.jumbotron-fluid
   .container
     %h1.display-4= @crag.name
+    %h2.display-5
+      Sectors in #{@crag.name}
+    %ul.list-group
+      -@crag.sectors.each do |sector|
+        %li.list-group-item= link_to sector.name, crag_sector_path(sector.crag, sector)
+    %h2.display-5
+      Top climbers in #{@crag.name}
 
-    %br
-
-    -# = link_to 'New Crag', new_crag_path
-
--# = link_to 'Edit', edit_crag_path(@crag)
-\|
 = link_to 'Back', crags_path
