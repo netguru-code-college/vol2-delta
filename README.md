@@ -1,24 +1,44 @@
-# README
+# Sandbag
+Sandbag is an application for all climbing-lovers. You can check new, cool places all around the world to hike. Also you can check ranking of best climbers and most popular climbing places.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Authors:
 
-Things you may want to cover:
+* [Karolina](https://github.com/karos)
+* [Marcin](https://github.com/marcin-ger)
+* [Patryk](https://github.com/droznyk)
+* [Wojtek](https://github.com/vjtknn)
 
-* Ruby version
+|     Technology    |   version      |
+| ------------- |:-------------:|
+|     Ruby    |   2.4.2      |
+| Rails    | 5.1.5 |
+| PostgreSQL   | 10.2    |
 
-* System dependencies
+## How to start
+1. Clone our app:
+```bash
+$ git clone https://github.com/netguru-code-college/vol2-delta.git
+```
 
-* Configuration
+2. Enter directory:
+```bash
+$ cd vol2-delta
+```
 
-* Database creation
+3. Instal all necessary gems:
+```bash
+$ bundle
+```
 
-* Database initialization
+4. Create and seed database:
+```bash
+$ rails db:create
+$ rails db:seed
+```
 
-* How to run the test suite
+5. Run rails server:
+```bash
+$ rails server
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Enjoy!
