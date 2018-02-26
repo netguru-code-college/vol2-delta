@@ -1,12 +1,15 @@
 .jumbotron.jumbotron-fluid
   .container
     %h1.display-4= @crag.name
-    %h2.display-5
-      Sectors in #{@crag.name}
-    %ul.list-group
-      -@crag.sectors.each do |sector|
-        %li.list-group-item= link_to sector.name, crag_sector_path(sector.crag, sector)
-    %h2.display-5
-      Top climbers in #{@crag.name}
-
-= link_to 'Back', crags_path
+    %p Number of sectors: #{@crag.name}
+    %div.row
+      %div.col-sm-5
+        %h2.display-6
+          Sectors in #{@crag.name}
+        %ul.list-group
+          -@crag.sectors.each do |sector|
+            %li.list-group-item= link_to sector.name, crag_sector_path(sector.crag, sector)
+      %div.col-sm-5
+        %h2.display-6
+          Top climbers in #{@crag.name}
+    = link_to 'Back', crags_path
