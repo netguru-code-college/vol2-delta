@@ -7,7 +7,6 @@ class ClimbingRoutesController < ApplicationController
 
   def new
     @climbing_route = ClimbingRoute.new
-    @sectors = Sector.all
   end
 
   def create
@@ -28,7 +27,6 @@ class ClimbingRoutesController < ApplicationController
   end
 
   def edit
-    @sectors = Sector.all
   end
 
   def update
