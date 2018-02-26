@@ -1,5 +1,5 @@
 class ClimbingRoutesController < ApplicationController
-  attr_accessor :name, :grade, :number_of_ascents
+  attr_accessor :name, :grade, :number_of_ascents, :route_grade_id
   before_action :fetch_climbing_route, only: [:show, :update, :edit, :destroy]
   def index
     @climbing_routes = ClimbingRoute.includes(sector: :crag).all.sort
