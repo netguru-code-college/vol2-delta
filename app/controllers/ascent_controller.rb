@@ -24,8 +24,7 @@ class AscentController < ApplicationController
     @ascent = Ascent.new(list_params)
 
     if @ascent.save
-
-      # dodanie przejścia do route
+      add_climbing_route
       redirect_to @ascent, notice: 'Ascent was successfully added to database.'
     else
       render :new
@@ -49,7 +48,10 @@ class AscentController < ApplicationController
 
   # end
   def add_climbing_route
-    ClimbingRouteServices::AddClimbingRoute.new(ClimbingRoute.name, climbing_route_params)
+    climbing_routes_service = ClimbingRouteServices::AddClimbingRoute.new(ClimbingRoute.id, climbing_route_params)
+    # if climbing_routes_service.present?
+    #   redirect_to 
+
   end
 
   # PATCH/PUT /lists/1
@@ -80,6 +82,6 @@ class AscentController < ApplicationController
     end
 
     def climbing_route_params
-       @climbing_route = ClimbingRoute.find(params[:name])
+       @climbing_route = ClimbingRoute.find(params[:id])
     end
 end
