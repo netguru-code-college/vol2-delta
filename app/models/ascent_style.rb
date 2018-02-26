@@ -1,0 +1,2 @@
+class AscentStyle < ApplicationRecord
+end

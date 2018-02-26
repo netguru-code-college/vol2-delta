@@ -15,6 +15,13 @@ ActiveRecord::Schema.define(version: 20180225101338) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "ascent_styles", force: :cascade do |t|
+    t.string "style"
+    t.integer "points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "ascents", force: :cascade do |t|
     t.string "grade"
     t.text "comment"
@@ -39,7 +46,14 @@ ActiveRecord::Schema.define(version: 20180225101338) do
     t.index ["sector_id"], name: "index_climbing_routes_on_sector_id"
   end
 
-  create_table "crags", force: :cascade do |t|
+  create_table "route_grades", force: :cascade do |t|
+    t.string "Grade"
+    t.integer "points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+ create_table "crags", force: :cascade do |t|
     t.string "name"
     t.string "country"
     t.decimal "latitude"
