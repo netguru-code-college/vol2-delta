@@ -16,15 +16,7 @@ puts '3 crags created'
 end
 puts '10 sectors created'
 
-10.times do
-  ClimbingRoute.create(
-    name: Faker::Beer.name,
-    grade: rand(1..100),
-    number_of_ascents: 0,
-    sector_id: rand(10),
-    route_grade_id: rand(23)
-  )
-end
+
 
 10.times do
   User.create(email: Faker::Internet.email,
@@ -65,3 +57,14 @@ RouteGrade.create(grade: '9b+', points: 1200)
 RouteGrade.create(grade: '9c', points: 1250)
 
 puts 'grading system created'
+
+10.times do
+  ClimbingRoute.create(
+    name: Faker::Beer.name,
+    number_of_ascents: 0,
+    sector_id: rand(10),
+    route_grade_id: rand(23)
+  )
+end
+
+puts '10 climbing routes created'
