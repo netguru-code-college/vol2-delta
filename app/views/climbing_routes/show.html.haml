@@ -1,0 +1,14 @@
+.container
+  %h1
+    Route
+    = " #{@climbing_route.id}"
+  %h2 Route data:
+  %p
+    Route name:
+    = @climbing_route.name
+  %p
+    Route grade:
+    = @climbing_route.grade
+  %p
+    Ascents amount:
+    = @climbing_route.number_of_ascents
