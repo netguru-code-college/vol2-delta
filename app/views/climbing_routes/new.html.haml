@@ -1,0 +1,7 @@
+%h1 Create new climbing route
+= form_for @climbing_route, url: crag_sector_climbing_routes_path do |f|
+  %p= f.text_field :name, placeholder: 'Climbing route name'
+  %p= f.text_field :grade, placeholder: 'Grade of this route'
+  %p= f.collection_select(:sector_id, @sectors, :id, :name, {:prompt => "Select sector..."}, {:selected => :prompt})
+  %p= f.hidden_field :number_of_ascents, value: 0
+  %p= f.submit "Submit", class: "btn btn-primary"
