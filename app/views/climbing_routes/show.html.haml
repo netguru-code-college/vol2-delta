@@ -8,7 +8,7 @@
     = @climbing_route.name
   %p
     Route grade:
-    = @climbing_route.grade
+    = get_route_grade(@climbing_route.route_grade_id)
   %p
     Ascents amount:
     = @climbing_route.number_of_ascents
