@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get '/rules', to: 'static_pages#rules'
   get '/about', to: 'static_pages#about'
 
-  resources :crags do
+=======
+  resources :crags, only: [:index, :show] do
     resources :sectors, except: [:new, :create] do
       resources :climbing_routes do
         resources :ascents
@@ -17,4 +18,4 @@ Rails.application.routes.draw do
   resources :sectors, only: [:new, :create]
   get '/sectors', to: 'sectors#index'
 end
-d
+
