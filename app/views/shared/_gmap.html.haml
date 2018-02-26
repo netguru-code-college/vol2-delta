@@ -1,9 +1,5 @@
 %div#map{style: 'width: auto; height: 500px'}
 
-= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyC45i8eK182AaWqEcDddgIasweTk868jhk"
-= javascript_include_tag "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"
-= javascript_include_tag "//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js"
-
 :javascript
   var handler = Gmaps.build('Google');
   handler.buildMap({ internal: {id: 'map'}}, function(){
