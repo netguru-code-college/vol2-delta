@@ -2,7 +2,7 @@ class ClimbingRoutesController < ApplicationController
   attr_accessor :name, :grade, :number_of_ascents
   before_action :fetch_climbing_route, only: [:show, :update, :edit, :destroy]
   def index
-    @climbing_routes = ClimbingRoute.all.sort
+    @climbing_routes = ClimbingRoute.includes(:sector).all.sort
   end
 
   def new
