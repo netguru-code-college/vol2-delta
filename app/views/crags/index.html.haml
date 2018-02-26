@@ -1,0 +1,10 @@
+.jumbotron.jumbotron-fluid
+  .container
+    %h1.display-4
+      Crag map
+      =render 'shared/gmap'
+    %h1.display-4
+      Crag list
+    %ul.list-group
+      -@crags.each do |crag|
+        %li.list-group-item= link_to crag.name, crag
