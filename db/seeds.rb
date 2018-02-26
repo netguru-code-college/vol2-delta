@@ -21,7 +21,8 @@ puts '10 sectors created'
     name: Faker::Beer.name,
     grade: rand(1..100),
     number_of_ascents: 0,
-    sector_id: rand(10)
+    sector_id: rand(10),
+    route_grade_id: rand(23)
   )
 end
 
