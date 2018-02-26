@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20180225101338) do
+ActiveRecord::Schema.define(version: 20180226135232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +43,8 @@ ActiveRecord::Schema.define(version: 20180225101338) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "sector_id"
+    t.bigint "route_grade_id"
+    t.index ["route_grade_id"], name: "index_climbing_routes_on_route_grade_id"
     t.index ["sector_id"], name: "index_climbing_routes_on_sector_id"
   end
 
@@ -93,6 +94,7 @@ ActiveRecord::Schema.define(version: 20180225101338) do
 
   add_foreign_key "ascents", "climbing_routes"
   add_foreign_key "ascents", "users"
+  add_foreign_key "climbing_routes", "route_grades"
   add_foreign_key "climbing_routes", "sectors"
   add_foreign_key "sectors", "crags"
 end
