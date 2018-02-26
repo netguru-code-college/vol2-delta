@@ -1,0 +1,13 @@
+%p#notice= notice
+
+.jumbotron.jumbotron-fluid
+  .container
+    %h1.display-4= @crag.name
+
+    %br
+
+    -# = link_to 'New Crag', new_crag_path
+
+-# = link_to 'Edit', edit_crag_path(@crag)
+\|
+= link_to 'Back', crags_path
