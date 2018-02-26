@@ -3,8 +3,8 @@ class CreateSectors < ActiveRecord::Migration[5.1]
     create_table :sectors do |t|
       t.string :name
       t.string :aspect
-      t.float :latitude
-      t.float :longitude
+      t.float :x
+      t.float :y
 
       t.timestamps
     end
