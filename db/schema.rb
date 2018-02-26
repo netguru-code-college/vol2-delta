@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20180223135608) do
+ActiveRecord::Schema.define(version: 20180223141450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,8 +31,8 @@ ActiveRecord::Schema.define(version: 20180223135608) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.bigint "climbing_routes_id"
-    t.index ["climbing_routes_id"], name: "index_ascents_on_climbing_routes_id"
+    t.bigint "climbing_route_id"
+    t.index ["climbing_route_id"], name: "index_ascents_on_climbing_route_id"
     t.index ["user_id"], name: "index_ascents_on_user_id"
   end
 
@@ -47,14 +46,7 @@ ActiveRecord::Schema.define(version: 20180223135608) do
     t.index ["sector_id"], name: "index_climbing_routes_on_sector_id"
   end
 
-  create_table "route_grades", force: :cascade do |t|
-    t.string "Grade"
-    t.integer "points"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
- create_table "crags", force: :cascade do |t|
+  create_table "crags", force: :cascade do |t|
     t.string "name"
     t.string "country"
     t.float "x"
@@ -63,11 +55,18 @@ ActiveRecord::Schema.define(version: 20180223135608) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "route_grades", force: :cascade do |t|
+    t.string "grade"
+    t.integer "points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sectors", force: :cascade do |t|
     t.string "name"
     t.string "aspect"
-    t.float "x"
-    t.float "y"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "crag_id"
@@ -91,7 +90,7 @@ ActiveRecord::Schema.define(version: 20180223135608) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "ascents", "climbing_routes", column: "climbing_routes_id"
+  add_foreign_key "ascents", "climbing_routes"
   add_foreign_key "ascents", "users"
   add_foreign_key "climbing_routes", "sectors"
   add_foreign_key "sectors", "crags"

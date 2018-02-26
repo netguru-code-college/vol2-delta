@@ -78,6 +78,8 @@ GEM
     erubi (1.7.0)
     erubis (2.7.0)
     execjs (2.7.0)
+    faker (1.8.7)
+      i18n (>= 0.7)
     ffi (1.9.21)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -225,6 +227,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise (~> 4.4, >= 4.4.1)
   draper (~> 3.0, >= 3.0.1)
+  faker
   gmaps4rails (~> 2.1.2)
   haml-rails (~> 1.0)
   jbuilder (~> 2.5)
