@@ -1,0 +1,11 @@
+-@sectors.each do |sector|
+  %p Name:
+  =link_to sector.name, crag_sector_path(sector.crag.id, sector.id)
+  %p Aspect:
+  =sector.aspect
+  %p Latitude:
+  =sector.latitude
+  %p Longitude:
+  =sector.longitude
+  %p Crag name:
+  =link_to sector.crag.name, crag_path(sector.crag.id)
