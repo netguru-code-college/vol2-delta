@@ -1,7 +1,7 @@
 .jumbotron.jumbotron-fluid
   .container
     %h1.display-4= @crag.name
-    %p Number of sectors: #{@crag.name}
+    %p Number of sectors: #{@crag.sectors.count.to_s}
     %div.row
       %div.col-sm-5
         %h2.display-6
