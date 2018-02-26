@@ -1,7 +1,7 @@
 =form_for @sector, url: crag_sector_path(@sector.crag, @sector) do |f|
 
-  =f.label :crag_id, class: 'form-group'
-  =f.text_field :crag_id, class: 'form-control'
+  .form-group
+    = f.collection_select(:crag_id, @crags, :id, :name, {:prompt => "Select sector..."}, {:selected => :prompt, class: 'form-control'})
 
   =f.label :name, class: 'form-group'
   =f.text_field :name, class: 'form-control'

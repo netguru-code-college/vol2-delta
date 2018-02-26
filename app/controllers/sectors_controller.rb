@@ -22,6 +22,7 @@ class SectorsController < ApplicationController
   end
 
   def edit
+    @crags = Crag.all
   end
 
   def update
