@@ -11,7 +11,7 @@ puts '3 crags created'
     aspect: Faker::Cat.breed,
     latitude: rand(1..100),
     longitude: rand,
-    crag_id: rand(3)
+    crag_id: rand(1..3)
   )
 end
 puts '10 sectors created'
@@ -62,8 +62,8 @@ puts 'grading system created'
   ClimbingRoute.create(
     name: Faker::Beer.name,
     number_of_ascents: 0,
-    sector_id: rand(10),
-    route_grade_id: rand(23)
+    sector_id: rand(1..10),
+    route_grade_id: rand(1..23)
   )
 end
 
@@ -73,9 +73,9 @@ puts '10 climbing routes created'
   Ascent.create(
     comment: Faker::ChuckNorris,
     date: rand(10).years.ago,
-    user_id: rand(10),
-    climbing_routes_id: rand(10),
-    ascent_style_id: rand(3)  
+    user_id: rand(1..10),
+    climbing_routes_id: rand(1..10),
+    ascent_style_id: rand(1..3)  
     )
 end
 
