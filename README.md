@@ -3,7 +3,8 @@
 
 [![Build Status](https://travis-ci.org/netguru-code-college/vol2-delta.svg?branch=master)](https://travis-ci.org/netguru-code-college/vol2-delta)
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://sandbag.herokuapp.com/)
-Sandbag is an application for all climbing-lovers. You can check new, cool places all around the world to hike. Also you can check ranking of best climbers and most popular climbing places.
+
+Sandbag is the best application for all climbing-lovers. You can check new, cool places all around the world to hike. Also you can check ranking of best climbers and most popular climbing places.
 
 ## Technologies:
 
@@ -51,6 +52,6 @@ Enjoy!
 
 ## Mentors:
 * [Zuza](https://github.com/zuzannast)
-* [Ozim](https://github.com/Qsmir)
-* [Qsmir](https://github.com/ozimeu)
+* [Ozim](https://github.com/ozimeu)
+* [Qsmir](  https://github.com/Qsmir)
 * [Darek](https://github.com/DariuszMusielak)
