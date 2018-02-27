@@ -32,18 +32,12 @@ class CragsController < ApplicationController
   end
 
   # POST /crags
-  # POST /crags.json
   def create
     @crag = Crag.new(crag_params)
-
-    respond_to do |format|
-      if @crag.save
-        format.html { redirect_to @crag, notice: 'Crag was successfully created.' }
-        format.json { render :show, status: :created, location: @crag }
-      else
-        format.html { render :new }
-        format.json { render json: @crag.errors, status: :unprocessable_entity }
-      end
+    if @crag.save
+      redirect_to crag_path(@crag), notice: "Crag was successfully created"
+    else
+      render 'new'
     end
   end
 
@@ -62,12 +56,10 @@ class CragsController < ApplicationController
   end
 
   # DELETE /crags/1
-  # DELETE /crags/1.json
   def destroy
     @crag.destroy
     respond_to do |format|
       format.html { redirect_to crags_url, notice: 'Crag was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -79,6 +71,7 @@ class CragsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def crag_params
-      params.fetch(:crag, {})
+      #params.fetch(:crag, {})
+      params.require(:crag).permit(:name, :country, :latitude, :longitude)
     end
 end
