@@ -1,0 +1,17 @@
+.jumbotron.jumbotron-fluid
+  .container
+    %h1.display-4= @ascent.name
+    %p Number of ascents: #{@climbing_route.ascents.count.to_s}
+    %div.row
+      %div.col-sm-5
+        %h2.display-6
+          Ascents of #{@climbing_route.name}
+          Grade #{@climbing_route.route_grade}
+          Number of ascents #{@climbing_route.number_of_ascents}
+      /   %ul.list-group
+      /     -@crag.sectors.each do |sector|
+      /       %li.list-group-item= link_to sector.name, crag_sector_path(sector.crag, sector)
+      / %div.col-sm-5
+      /   %h2.display-6
+      /     Top climbers in #{@crag.name}
+    = link_to 'Back', crag_sector_climbing_route_ascents_path

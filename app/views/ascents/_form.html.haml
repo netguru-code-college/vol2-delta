@@ -1,0 +1,18 @@
+%p
+  = link_to 'Back', crag_sector_climbing_route_ascents_path
+= render 'errors', model: @ascent
+= form_for @ascent do |f|
+  %p
+    = f.label :comment
+    %br/
+    = f.text_field :text
+  %p
+    = f.label :date
+    %br/
+    = f.text_area :datetime
+  %p
+  / %p= f.collection_select(:sector_id, @sectors, :id, :name, {:prompt => "Select sector..."}, {:selected => :prompt})
+
+  .actions
+    = f.submit 'Save'
+

@@ -1,0 +1,11 @@
+%h1 Add new ascent
+= form_for @ascent, url: crag_sector_climbing_route_ascents_path do |f|
+  %p= f.text_field :name, placeholder: 'Climbing route name'
+  %p= f.collection_select(:route_grade_id, RouteGrade.all, :id, :grade, {:prompt => "Select grade..."}, {:selected => :prompt})
+  %p= f.hidden_field :sector_id, value: params[:sector_id]
+  %p= f.hidden_field :number_of_ascents, value: 0
+  %p= f.submit "Submit", class: "btn btn-primary"
+
+# = render 'form'
+
+= link_to 'Back', crag_sector_climbing_route_ascents_path
