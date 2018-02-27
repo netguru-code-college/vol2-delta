@@ -1,6 +1,8 @@
-%h1 Editing crag
-=form_for @crag, url: crag_path(@crag) do |f|
-  = render 'form'
+.jumbotron.jumbotron-fluid
+  .container
+    %h1 Editing crag
+    =form_for @crag, url: crag_path(@crag) do |f|
+      = render 'form'
 
-= link_to 'Show', @crag
-= link_to 'Back', crags_path
+    = link_to 'Show', @crag
+    = link_to 'Back', crags_path
