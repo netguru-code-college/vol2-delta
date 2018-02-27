@@ -71,7 +71,7 @@ puts '10 climbing routes created'
 
 10.times do
   Ascent.create(
-    comment: Faker::ChuckNorris,
+    comment: Faker::Beer.name,
     date: rand(10).years.ago,
     user_id: (User.all.map(&:id)).sample,
     climbing_route_id: (ClimbingRoute.all.map(&:id)).sample,

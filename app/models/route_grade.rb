@@ -1,5 +1,5 @@
 class RouteGrade < ApplicationRecord
-  has_many :climbing_routes
+  has_one :climbing_route
 
   # before_create :dosth
 
