@@ -1,12 +1,11 @@
 # Sandbag
+***
+
+[![Build Status](https://travis-ci.org/netguru-code-college/vol2-delta.svg?branch=master)](https://travis-ci.org/netguru-code-college/vol2-delta)
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://sandbag.herokuapp.com/)
 Sandbag is an application for all climbing-lovers. You can check new, cool places all around the world to hike. Also you can check ranking of best climbers and most popular climbing places.
 
-## Authors:
-
-* [Karolina](https://github.com/karos)
-* [Marcin](https://github.com/marcin-ger)
-* [Patryk](https://github.com/droznyk)
-* [Wojtek](https://github.com/vjtknn)
+## Technologies:
 
 |     Technology    |   version      |
 | ------------- |:-------------:|
@@ -15,6 +14,7 @@ Sandbag is an application for all climbing-lovers. You can check new, cool place
 | PostgreSQL   | 10.2    |
 
 ## How to start
+---
 1. Clone our app:
 ```bash
 $ git clone https://github.com/netguru-code-college/vol2-delta.git
@@ -40,5 +40,17 @@ $ rails db:seed
 ```bash
 $ rails server
 ```
-
 Enjoy!
+
+## Authors:
+
+* [Karolina](https://github.com/karos)
+* [Marcin](https://github.com/marcin-ger)
+* [Patryk](https://github.com/droznyk)
+* [Wojtek](https://github.com/vjtknn)
+
+## Mentors:
+* [Zuza](https://github.com/zuzannast)
+* [Ozim](https://github.com/Qsmir)
+* [Qsmir](https://github.com/ozimeu)
+* [Darek](https://github.com/DariuszMusielak)
