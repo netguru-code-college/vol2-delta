@@ -10,8 +10,8 @@ puts '3 crags created'
     name: Faker::BossaNova.song,
     aspect: Faker::Cat.breed,
     latitude: rand(1..100),
-    longitude: rand,
-    crag_id: rand(1..3)
+    longitude: rand(1..100),
+    crag_id: (Crag.all.map(&:id)).sample
   )
 end
 puts '10 sectors created'
@@ -62,8 +62,8 @@ puts 'grading system created'
   ClimbingRoute.create(
     name: Faker::Beer.name,
     number_of_ascents: 0,
-    sector_id: rand(1..10),
-    route_grade_id: rand(1..23)
+    sector_id: (Sector.all.map(&:id)).sample,
+    route_grade_id: (RouteGrade.all.map(&:id)).sample
   )
 end
 
@@ -73,10 +73,12 @@ puts '10 climbing routes created'
   Ascent.create(
     comment: Faker::ChuckNorris,
     date: rand(10).years.ago,
-    user_id: rand(1..10),
-    climbing_routes_id: rand(1..10),
-    ascent_style_id: rand(1..3)  
-    )
+    user_id: (User.all.map(&:id)).sample,
+    climbing_route_id: (ClimbingRoute.all.map(&:id)).sample,
+    ascent_style_id: (AscentStyle.all.map(&:id)).sample  
+  )
 end
 
 puts '10 ascents created'
+
+
