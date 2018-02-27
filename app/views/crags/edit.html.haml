@@ -2,7 +2,7 @@
   .container
     %h1 Editing crag
     =form_for @crag, url: crag_path(@crag) do |f|
-      = render 'form'
+      = render 'edit_form'
 
     = link_to 'Show', @crag
     = link_to 'Back', crags_path

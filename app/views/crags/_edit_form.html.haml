@@ -6,7 +6,7 @@
   =f.text_field :name, class: 'form-control'
 
   =f.label :country, class: 'form-group'
-  =f.country_select :country
+  =f.country_select(:country,  {:prompt => "Select contry..."}, {:selected => "PL", class: 'form-control'})
 
   =f.label :latitude, class: 'form-group'
   =f.text_field :latitude, class: 'form-control'
