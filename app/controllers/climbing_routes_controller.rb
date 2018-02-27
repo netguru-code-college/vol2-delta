@@ -4,8 +4,8 @@ class ClimbingRoutesController < ApplicationController
   before_action :fetch_climbing_route, only: %i[show update edit destroy]
   def index
     @climbing_routes = ClimbingRoute.in_crag_and_sector(
-      params[:crag_id],
-      params[:sector_id]
+      params[:sector_id],
+      params[:crag_id]
     )
   end
 
