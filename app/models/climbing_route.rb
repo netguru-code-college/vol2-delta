@@ -12,5 +12,3 @@ class ClimbingRoute < ApplicationRecord
             .where('sectors.crag_id = ?', crag_id)
         }
 end
-
-ClimbingRoute.includes(:sector).where(sector_id: 3).where('sector.crag_id = ?', 4)

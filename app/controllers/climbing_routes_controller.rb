@@ -1,5 +1,6 @@
 class ClimbingRoutesController < ApplicationController
   attr_accessor :name, :grade, :number_of_ascents, :route_grade_id
+
   before_action :fetch_climbing_route, only: %i[show update edit destroy]
   def index
     @climbing_routes = ClimbingRoute.in_crag_and_sector(
@@ -14,7 +15,7 @@ class ClimbingRoutesController < ApplicationController
 
   def create
     @climbing_route = ClimbingRoute.new(climbing_route_params)
-    binding.pry
+
     if @climbing_route.save
       redirect_to crag_sector_climbing_route_path(
         @climbing_route.sector.crag,
@@ -25,10 +26,6 @@ class ClimbingRoutesController < ApplicationController
       render :new
     end
   end
-
-  def show; end
-
-  def edit; end
 
   def update
     if @climbing_route.update(climbing_route_params)
