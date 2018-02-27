@@ -1,11 +1,10 @@
 module ClimbingRouteService
   class AddClimbingRoute
-    attr_accesor :name, :grade, :climbing_route
+    attr_accesor :name, :grade
 
-    def initialize(climbing_route_name, climbing_route_params)
-      @name = climbing_route_params[:name]
-      @grade = climbing_route_params[:grade]
-      @climbing_route = ClimbingRoute.find(params[:id])
+    def initialize(climbing_route_params)
+      @name = climbing_route_params.name
+      @grade = climbing_route_params.grade
     end
 
     def call
