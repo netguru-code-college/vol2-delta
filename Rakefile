@@ -3,4 +3,5 @@
 
 require_relative 'config/application'
 
+task :default => :test
 Rails.application.load_tasks
