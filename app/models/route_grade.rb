@@ -1,7 +1,3 @@
 class RouteGrade < ApplicationRecord
-  has_many :climbing_routes
-
-  # before_create :dosth
-
-  # df dosth
+  has_one :climbing_route
 end

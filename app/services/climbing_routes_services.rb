@@ -12,9 +12,9 @@ module ClimbingRouteService
     end
 
   private 
-    def calculate_points(grade, style)
-      #odwołanie do tabeli grades i styles
-    end
+    # def calculate_points(grade, style)
+    #   #odwołanie do tabeli grades i styles
+    # end
 
     # def climbing_routes_id
 
@@ -27,42 +27,42 @@ end
 
 
 
-# to nie jest właściwy kod, tylko przykład
-  module ClimbingRouteSerivce
-    class AddClimbingRoute
-      attr_accesor :x, :y, :mountaint
+# # to nie jest właściwy kod, tylko przykład
+#   module ClimbingRouteSerivce
+#     class AddClimbingRoute
+#       attr_accesor :x, :y, :mountaint
 
-      def initialize(mountaint_id, params)
-        @x = params[:x]
-        @y = params[:y]
-        @mountain = Mountain.find(mountaint_id)
-      end
+#       def initialize(mountaint_id, params)
+#         @x = params[:x]
+#         @y = params[:y]
+#         @mountain = Mountain.find(mountaint_id)
+#       end
 
-      def call
-        rub_raport_from_this_year! 
-        add_to_last_checkopoint!
-      end
+#       def call
+#         rub_raport_from_this_year! 
+#         add_to_last_checkopoint!
+#       end
 
-      private 
+#       private 
 
-      def run_rapoer_from_this_year!
-        ...
-      end
+#       def run_rapoer_from_this_year!
+#         ...
+#       end
 
-      def calculate_last_checkpoint
-        ...
-        ..
-        ...
+#       def calculate_last_checkpoint
+#         ...
+#         ..
+#         ...
 
-        ...
-      end
+#         ...
+#       end
 
-      def add_to_last_checkopoint!
-        lc = calculate_last_checkpoint 
-        lc.create!(....)
-      end
-    end
-  end
+#       def add_to_last_checkopoint!
+#         lc = calculate_last_checkpoint 
+#         lc.create!(....)
+#       end
+#     end
+#   end
 
 
 
