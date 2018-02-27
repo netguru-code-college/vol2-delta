@@ -62,8 +62,14 @@ class CragsController < ApplicationController
 
   private
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def crag_params
-      params.require(:crag).permit(:name, :country, :latitude, :longitude)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_crag
+    @crag = Crag.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def crag_params
+    params.require(:crag).permit(:name, :country, :latitude, :longitude)
+  end
+
 end
