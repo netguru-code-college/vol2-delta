@@ -44,6 +44,10 @@ class ClimbingRoutesController < ApplicationController
     redirect_to crag_sector_climbing_routes_path, notice: 'Climbing route was successfully destroyed.'
   end
 
+  def show_all_climbing_routes
+    @climbing_routes = ClimbingRoute.show_all_climbing_routes
+  end
+
   private
 
   def fetch_climbing_route

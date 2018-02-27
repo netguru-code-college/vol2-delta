@@ -11,4 +11,10 @@ class ClimbingRoute < ApplicationRecord
             .where(sector_id: sector_id)
             .where('sectors.crag_id = ?', crag_id)
         }
+  scope :show_all_climbing_routes,
+        lambda {
+          eager_load(sector: :crag)
+          .all
+          .order(:name)
+        }
 end
