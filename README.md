@@ -51,6 +51,6 @@ Enjoy!
 
 ## Mentors:
 * [Zuza](https://github.com/zuzannast)
-* [Ozim](https://github.com/Qsmir)
-* [Qsmir](https://github.com/ozimeu)
+* [Qsmir](https://github.com/Qsmir)
+* [Ozim](https://github.com/ozimeu)
 * [Darek](https://github.com/DariuszMusielak)
