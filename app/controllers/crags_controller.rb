@@ -28,6 +28,7 @@ class CragsController < ApplicationController
 
   # GET /crags/1/edit
   def edit
+    @crag = Crag.find(params[:id])
   end
 
   # POST /crags
