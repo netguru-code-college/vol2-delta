@@ -1,5 +1,8 @@
 .jumbotron.jumbotron-fluid
   .container
+    - if flash[:notice]
+      %div.alert.alert-success
+        = flash[:notice]
     %h1.display-5
       Crags
     =link_to "New", new_crag_path
