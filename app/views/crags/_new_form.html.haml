@@ -1,16 +1,18 @@
-=form_for @crag do |f|
+.jumbotron.jumbotron-fluid
+  .container
+    =form_for @crag do |f|
 
-  =f.label :name, class: 'form-group'
-  =f.text_field :name, class: 'form-control'
-  %br/
-  =f.label :country, class: 'form-group'
-  =f.country_select :country
-  %br/
-  =f.label :latitude, class: 'form-group'
-  =f.text_field :latitude, class: 'form-control'
+      =f.label :name, class: 'form-group'
+      =f.text_field :name, class: 'form-control'
+      %br/
+      =f.label :country, class: 'form-group'
+      =f.country_select(:country,  {:prompt => "Select contry..."}, {:selected => "PL", class: 'form-control'})
+      %br/
+      =f.label :latitude, class: 'form-group'
+      =f.text_field :latitude, class: 'form-control'
 
-  =f.label :longitude, class: 'form-group'
-  =f.text_field :longitude, class: 'form-control'
-  %br/
-  .form-group
-    =f.submit class: 'btn btn-success'
+      =f.label :longitude, class: 'form-group'
+      =f.text_field :longitude, class: 'form-control'
+      %br/
+      .form-group
+        =f.submit class: 'btn btn-success'
