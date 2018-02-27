@@ -1,17 +1,17 @@
 module ClimbingRouteService
   class AddClimbingRoute
-    attr_accesor :name, :grade, :climbing_route
+    attr_accessor :name, :grade, :climbing_route
 
-    def initialize(climbing_route_name, climbing_route_params)
+    def initialize(_climbing_route_name, climbing_route_params)
       @name = climbing_route_params[:name]
       @grade = climbing_route_params[:grade]
       @climbing_route = ClimbingRoute.find(params[:id])
     end
 
-    def call
-    end
+    def call; end
 
-  private 
+    private 
+
     # def calculate_points(grade, style)
     #   #odwołanie do tabeli grades i styles
     # end
@@ -19,13 +19,8 @@ module ClimbingRouteService
     # def climbing_routes_id
 
     # end
-
-
-
-  end
-end
-
-
+  #end
+#end
 
 # # to nie jest właściwy kod, tylko przykład
 #   module ClimbingRouteSerivce
@@ -39,11 +34,11 @@ end
 #       end
 
 #       def call
-#         rub_raport_from_this_year! 
+#         rub_raport_from_this_year!
 #         add_to_last_checkopoint!
 #       end
 
-#       private 
+#       private
 
 #       def run_rapoer_from_this_year!
 #         ...
@@ -58,16 +53,8 @@ end
 #       end
 
 #       def add_to_last_checkopoint!
-#         lc = calculate_last_checkpoint 
+#         lc = calculate_last_checkpoint
 #         lc.create!(....)
 #       end
 #     end
 #   end
-
-
-
-
-
-
-
-

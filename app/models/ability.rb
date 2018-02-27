@@ -1,11 +1,9 @@
 class Ability
-  include CanCan::Ability
+  # => include CanCan::Ability
 
   def initialize(user)
     user || User.new
 
-    if user.role == 'admin'
-      can :menage, :all?
-    end
+    can :menage, :all? if user.role == 'admin'
   end
 end

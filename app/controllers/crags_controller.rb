@@ -1,6 +1,5 @@
 class CragsController < ApplicationController
-
-  before_action :set_crag, only: [:show, :edit, :update, :destroy]
+  before_action :set_crag, only: %i[show edit update destroy]
 
   # GET /crags
   # GET /crags.json
@@ -12,7 +11,6 @@ class CragsController < ApplicationController
       marker.lng crag.longitude
       marker.infowindow crag.name
     end
-
   end
 
   # GET /crags/1
@@ -64,14 +62,22 @@ class CragsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_crag
-      @crag = Crag.find(params[:id])
-    end
 
+<<<<<<< HEAD
     # Never trust parameters from the scary internet, only allow the white list through.
     def crag_params
       #params.fetch(:crag, {})
       params.require(:crag).permit(:name, :country, :latitude, :longitude)
     end
+=======
+  # Use callbacks to share common setup or constraints between actions.
+  def set_crag
+    @crag = Crag.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def crag_params
+    params.fetch(:crag, {})
+  end
+>>>>>>> 1ddc31438c8ca3d69adc6c9c42549403c308a876
 end
