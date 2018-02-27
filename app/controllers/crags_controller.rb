@@ -26,10 +26,7 @@ class CragsController < ApplicationController
 
   # GET /crags/1/edit
   def edit
-<<<<<<< HEAD
     @crag = Crag.find(params[:id])
-=======
->>>>>>> 7015dae8cd1ebd141f5f190b4a0b2ffe742fb519
   end
 
   # POST /crags
