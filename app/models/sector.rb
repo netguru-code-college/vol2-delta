@@ -1,4 +1,4 @@
 class Sector < ApplicationRecord
-  belongs_to :crag
-  has_many :climbing_routes
+  belongs_to :crag, dependent: :destroy
+  has_many :climbing_routes, dependent: :destroy
 end

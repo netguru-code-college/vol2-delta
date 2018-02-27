@@ -1,19 +1,16 @@
-=form_for @crag, url: crag_path(@crag) do |f|
-
-  .form-group
+=form_for @crag do |f|
 
   =f.label :name, class: 'form-group'
   =f.text_field :name, class: 'form-control'
-
+  %br/
   =f.label :country, class: 'form-group'
   =f.country_select :country
-
+  %br/
   =f.label :latitude, class: 'form-group'
   =f.text_field :latitude, class: 'form-control'
 
   =f.label :longitude, class: 'form-group'
   =f.text_field :longitude, class: 'form-control'
-
-  %br
+  %br/
   .form-group
     =f.submit class: 'btn btn-success'
