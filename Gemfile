@@ -24,6 +24,7 @@ gem 'underscore-rails'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'rubocop', '~> 0.52.1'
 gem 'countries', '~> 1.2', '>= 1.2.5'
+gem 'country_select', '~> 2.5', '>= 2.5.2'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
