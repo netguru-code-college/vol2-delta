@@ -1,1 +1,1 @@
-json.partial! "crags/crag", crag: @crag
+json.partial! 'crags/crag', crag: @crag

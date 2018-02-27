@@ -8,9 +8,7 @@ class Ascent < ApplicationRecord
 
   private
 
-
   def calculate_points
-    self.points = self.climbing_route.route_grade.points + self.ascent_style.points
+    self.points = climbing_route.route_grade.points + ascent_style.points
   end
-
 end

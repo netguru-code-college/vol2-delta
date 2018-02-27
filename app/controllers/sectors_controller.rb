@@ -1,12 +1,11 @@
 class SectorsController < ApplicationController
-  before_action :set_sector, only: [:show, :edit, :update, :destroy]
+  before_action :set_sector, only: %i[show edit update destroy]
 
   def index
     @sectors = Sector.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @sector = Sector.new
@@ -35,12 +34,13 @@ class SectorsController < ApplicationController
 
   def destroy
     @sector.destroy
-      redirect_to sectors_url
+    redirect_to sectors_url
   end
+
   private
 
   def set_sector
-      @sector = Sector.find(params[:id])
+    @sector = Sector.find(params[:id])
   end
 
   def sector_params
