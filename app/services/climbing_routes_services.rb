@@ -2,16 +2,16 @@ module ClimbingRouteService
   class AddClimbingRoute
     attr_accesor :name, :grade, :climbing_route
 
-    def initialize(climbing_route_name, climbing_route_params)
+    def initialize(_climbing_route_name, climbing_route_params)
       @name = climbing_route_params[:name]
       @grade = climbing_route_params[:grade]
       @climbing_route = ClimbingRoute.find(params[:id])
     end
 
-    def call
-    end
+    def call; end
 
-  private 
+    private 
+
     # def calculate_points(grade, style)
     #   #odwołanie do tabeli grades i styles
     # end
@@ -19,13 +19,8 @@ module ClimbingRouteService
     # def climbing_routes_id
 
     # end
-
-
-
   end
 end
-
-
 
 # # to nie jest właściwy kod, tylko przykład
 #   module ClimbingRouteSerivce
@@ -63,11 +58,3 @@ end
 #       end
 #     end
 #   end
-
-
-
-
-
-
-
-
