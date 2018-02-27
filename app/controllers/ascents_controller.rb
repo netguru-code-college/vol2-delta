@@ -59,6 +59,3 @@ class AscentController < ApplicationController
   def climbing_route_params
      @climbing_route = ClimbingRoute.find(params[:id])
   end
-
-end
-  
