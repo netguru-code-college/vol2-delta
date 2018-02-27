@@ -2,10 +2,14 @@
   .container
     %h1.display-5
       Crags
+    =link_to "New", new_crag_path
     %div.row
       %div.col-sm-8
         =render 'shared/gmap'
       %div.col-sm-3
         %ul.list-group
           -@crags.each do |crag|
-            %li.list-group-item= link_to crag.name, crag
+            %li.list-group-item
+              =link_to crag.name, crag_path(crag)
+            %li.list-group-item
+              =link_to "Edit", edit_crag_path(crag)

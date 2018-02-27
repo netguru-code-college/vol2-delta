@@ -25,7 +25,8 @@ class CragsController < ApplicationController
   end
 
   # GET /crags/1/edit
-  def edit; end
+  def edit
+  end
 
   # POST /crags
   # POST /crags.json
