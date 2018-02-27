@@ -2,6 +2,7 @@
 = form_for @climbing_route, url: crag_sector_climbing_route_path(@climbing_route.sector.crag, @climbing_route.sector, @climbing_route) do |f|
   %p= f.text_field :name, placeholder: 'Climbing route name'
   %p= f.collection_select(:route_grade_id, RouteGrade.all, :id, :grade, {:prompt => "Select grade..."}, {:selected => :prompt})
-  %p= f.collection_select(:sector_id, Sector.all, :id, :name, {:prompt => "Select sector..."}, {:selected => :prompt})
+  %p= f.hidden_field :sector_id, value: params[:sector_id]
   %p= f.hidden_field :number_of_ascents, value: 0
   %p= f.submit "Submit", class: "btn btn-primary"
+= render 'link_back'
