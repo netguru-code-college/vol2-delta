@@ -1,5 +1,5 @@
 class AscentController < ApplicationController
-  before_action :set_ascent, only: [:show, :edit, :update, :destroy]
+  before_action :set_ascent, only: %i[show edit update destroy]
 
   # GET /lists
   def index
@@ -7,8 +7,7 @@ class AscentController < ApplicationController
   end
 
   # GET /lists/1
-  def show
-  end
+  def show; end
 
   # GET /lists/new
   def new
@@ -16,8 +15,7 @@ class AscentController < ApplicationController
   end
 
   # GET /lists/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /lists
   def create
@@ -51,7 +49,6 @@ class AscentController < ApplicationController
     climbing_routes_service = ClimbingRouteServices::AddClimbingRoute.new(ClimbingRoute.id, climbing_route_params)
     # if climbing_routes_service.present?
     #   redirect_to 
-
   end
 
   # PATCH/PUT /lists/1
@@ -71,17 +68,17 @@ class AscentController < ApplicationController
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_ascent
-      @ascent = Ascent.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_ascent
+    @ascent = Ascent.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def list_params
-      params.require(:ascent).permit(:grade, :comment, :date, :style)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def list_params
+    params.require(:ascent).permit(:grade, :comment, :date, :style)
+  end
 
-    def climbing_route_params
-       @climbing_route = ClimbingRoute.find(params[:id])
-    end
+  def climbing_route_params
+    @climbing_route = ClimbingRoute.find(params[:id])
+  end
 end
