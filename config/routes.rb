@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   end
   resources :sectors, only: [:new, :create]
   get '/sectors', to: 'sectors#index'
+  get '/climbing_routes', to: 'climbing_routes#show_all_climbing_routes'
 end
