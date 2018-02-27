@@ -1,5 +1,8 @@
 .jumbotron.jumbotron-fluid
   .container
+    - if flash[:notice]
+      %div.alert.alert-success
+        = flash[:notice]
     %h1.display-4= @crag.name
     %p Number of sectors: #{@crag.sectors.count.to_s}
     %div.row
@@ -12,4 +15,6 @@
       %div.col-sm-5
         %h2.display-6
           Top climbers in #{@crag.name}
+    = link_to "Edit", edit_crag_path(@crag)
+    = link_to "Delete", crag_path(@crag), method: :delete
     = link_to 'Back', crags_path

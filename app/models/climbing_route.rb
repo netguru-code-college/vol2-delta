@@ -1,9 +1,9 @@
 class ClimbingRoute < ApplicationRecord
   validates :name,  presence: true
 
-  belongs_to :sector
-  has_many :ascents
-  has_one :route_grade
+  belongs_to :sector, dependent: :destroy
+  has_many :ascents, dependent: :nullify
+  belongs_to :route_grade
 
   scope :in_crag_and_sector,
         lambda { |sector_id, crag_id|
