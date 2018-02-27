@@ -20,7 +20,7 @@ class AscentController < ApplicationController
     @ascent = Ascent.new(ascent_params)
 
     if @ascent.save
-      add_climbing_route
+      # add_climbing_route
       redirect_to ascents_path, notice: 'Ascent was successfully added to database.'
     else
       render :new
@@ -64,7 +64,7 @@ class AscentController < ApplicationController
     end
 
     def add_climbing_route
-      climbing_routes_service = ClimbingRouteServices::AddClimbingRoute.new(climbing_route_params)
+      # climbing_routes_service = ClimbingRouteServices::AddClimbingRoute.new(climbing_route_params)
       # if climbing_routes_service.present?
       #   redirect_to 
     end
