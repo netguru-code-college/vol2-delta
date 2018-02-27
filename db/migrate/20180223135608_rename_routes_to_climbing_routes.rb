@@ -5,7 +5,7 @@ class RenameRoutesToClimbingRoutes < ActiveRecord::Migration[5.1]
 
     rename_table :routes, :climbing_routes
 
-    add_reference :ascents, :climbing_route, foreign_key: true
+    add_reference :ascents, :climbing_routes, foreign_key: true
     add_reference :climbing_routes, :sector, foreign_key: true
   end
 end
