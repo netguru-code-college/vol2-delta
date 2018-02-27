@@ -68,3 +68,15 @@ puts 'grading system created'
 end
 
 puts '10 climbing routes created'
+
+10.times do
+  Ascent.create(
+    comment: Faker::ChuckNorris,
+    date: rand(10).years.ago,
+    user_id: rand(10),
+    climbing_routes_id: rand(10),
+    ascent_style_id: rand(3)  
+    )
+end
+
+puts '10 ascents created'
