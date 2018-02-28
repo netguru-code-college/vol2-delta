@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :crags do
     resources :sectors, except: [:new, :create] do
       resources :climbing_routes do
-        resources :ascents, except: [:index]
+        resources :ascents
       end
     end
   end
