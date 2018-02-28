@@ -4,7 +4,7 @@ class CragsController < ApplicationController
   # GET /crags
   # GET /crags.json
   def index
-    @crags = Crag.all
+    @crags = Crag.includes(:sectors).all
 
     @crags_hash = Gmaps4rails.build_markers(@crags) do |crag, marker|
       marker.lat crag.latitude

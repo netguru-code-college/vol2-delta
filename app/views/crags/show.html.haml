@@ -4,9 +4,6 @@
       %div.alert.alert-success
         = flash[:notice]
     %h1.display-4= crag_full_name @crag
-    = link_to "Edit", edit_crag_path(@crag)
-    %br
-    = link_to "Delete", crag_path(@crag), method: :delete
     %p Number of sectors: #{@crag.sectors.count.to_s}
     %div.row
       %div.col-sm-5
@@ -16,4 +13,4 @@
           -@crag.sectors.each do |sector|
             %li.list-group-item= link_to sector.name, crag_sector_path(sector.crag, sector)
       %div.col-sm-5
-    = link_to 'Back', crags_path
+    = link_to 'Back', crags_path, class: 'btn btn-primary'
