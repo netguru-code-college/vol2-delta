@@ -25,14 +25,13 @@ class CragsController < ApplicationController
   end
 
   # GET /crags/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /crags
   def create
     @crag = Crag.new(crag_params)
     if @crag.save
-      redirect_to crag_path(@crag), notice: "Crag was successfully created"
+      redirect_to crag_path(@crag), notice: 'Crag was successfully created'
     else
       render 'new'
     end
@@ -71,5 +70,4 @@ class CragsController < ApplicationController
   def crag_params
     params.require(:crag).permit(:name, :country, :latitude, :longitude)
   end
-
 end
