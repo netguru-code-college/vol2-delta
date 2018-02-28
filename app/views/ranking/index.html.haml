@@ -1,13 +1,15 @@
 .jumbotron.jumbotron-fluid
   .container
-    %h1 Top 10 climbers
-    .row
-      .col-md-8
-        %h2 User
-      .col-md-2
-        %h2 Points
-      -@users.each do |user|
-        .col-md-8
-          =link_to user.email, edit_user_registration_path(user)
-        .col-md-4
-          =user.total_points
+    %h1.display-4 Top 10 climbers
+    %table.table.table-striped
+      %thead
+        %tr
+          %td No.
+          %td User
+          %td Points
+      %tbody
+        -@users.each_with_index do |user, i|
+          %tr
+            %td= i + 1
+            %td= link_to user.email, edit_user_registration_path(user)
+            %td= user.total_points
