@@ -4,5 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  scope :top_ten, -> { order('total_points desc') }
+  scope :top_ten, -> { order('total_points desc').take(10) }
 end
