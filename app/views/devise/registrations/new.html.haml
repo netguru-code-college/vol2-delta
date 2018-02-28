@@ -21,9 +21,5 @@
             = f.label :password_confirmation
             %br/
             = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
-        .col-md-10
-        .col-md-2
           .form-group
             = f.submit "Sign up", class: 'btn btn-primary btn-block'
-          .btn.btn-success.btn-block
-            = render "devise/shared/links"
