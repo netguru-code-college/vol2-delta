@@ -14,7 +14,7 @@ class ClimbingRoute < ApplicationRecord
   scope :show_all_climbing_routes,
         lambda {
           eager_load(sector: :crag)
-          .all
-          .order(:name)
+            .all
+            .order(:name)
         }
 end
