@@ -1,11 +1,16 @@
--@sectors.each do |sector|
-  %p Name:
-  =link_to sector.name, crag_sector_path(sector.crag.id, sector.id)
-  %p Aspect:
-  =sector.aspect
-  %p Latitude:
-  =sector.latitude
-  %p Longitude:
-  =sector.longitude
-  %p Crag name:
-  =link_to sector.crag.name, crag_path(sector.crag.id)
+%table.table.table-striped
+  %thead
+    %tr
+      %td Name:
+      %td Aspect:
+      %td Latitude:
+      %td Longitude
+      %td Crag name:
+  %tbody
+    - @sectors.each do |sector|
+      %tr
+        %td= link_to sector.name, crag_sector_path(sector.crag.id, sector.id)
+        %td= sector.aspect
+        %td= sector.latitude
+        %td= sector.longitude
+        %td= link_to sector.crag.name, crag_path(sector.crag.id)

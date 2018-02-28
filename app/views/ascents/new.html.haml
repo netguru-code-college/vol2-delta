@@ -1,0 +1,30 @@
+%h2 Add new ascent
+%h4 Route name
+%p= @climbing_route.name
+%h4 Sector
+%p= @climbing_route.sector.name
+%h4 Crag
+%p= @climbing_route.sector.crag.name
+
+= form_for @ascent, url: crag_sector_climbing_route_ascents_path do |f|
+  .form-group.row
+  %label.col-2.col-form-label{:for => "OS"} Style
+  .col-md-3
+    %p= f.collection_select(:ascent_style_id, AscentStyle.all, :id, :style, {:prompt => "Select style..."}, {:selected => :prompt})
+  .form-group.row
+  %label.col-2.col-form-label{:for => "example-date-input"} Comment
+  .col-md-3
+    %input#example-comment-input.form-control{:type => "text", :value => "Great route!"}/
+  .form-group.row
+  %label.col-2.col-form-label{:for => "example-date-input"} Date
+  .col-md-3
+    %input#example-date-input.form-control{:type => "date", :value => "yyyy-mm-dd"}/
+
+  
+  %p= f.hidden_field :climbing_route_id, value: params[:climbing_route_id]
+  %p= f.submit "Submit", class: "btn btn-primary"
+
+
+= link_to 'Back', crag_sector_climbing_route_ascents_path
+
+
