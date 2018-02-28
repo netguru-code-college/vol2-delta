@@ -1,0 +1,7 @@
+= form_for @ascent do |f|
+  - if @ascent.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@ascent.errors.count, "error")} prohibited this ascent from being saved:"
+      %ul
+        - @ascent.errors.full_messages.each do |message|
+          %li= message
