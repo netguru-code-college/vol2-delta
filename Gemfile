@@ -26,6 +26,8 @@ gem 'rubocop', '~> 0.52.1'
 gem 'countries', '~> 1.2', '>= 1.2.5'
 gem 'country_select', '~> 2.5', '>= 2.5.2'
 gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'master'
+gem 'listen', '>= 3.0.5', '< 3.2'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -34,7 +36,6 @@ end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end

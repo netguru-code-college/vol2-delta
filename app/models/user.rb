@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   scope :top_ten, -> { order('total_points desc').take(10) }
+  has_many :ascents
 end

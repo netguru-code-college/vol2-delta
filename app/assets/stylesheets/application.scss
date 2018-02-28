@@ -1,9 +1,27 @@
 @import "bootstrap";
 
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
 nav {
   margin-bottom: 40px,
 }
 
 .btn {
   margin-left: 10px;
+}
+
+body#static-pages-index {
+  background: image-url('sunrise-in-the-mountains.jpg') no-repeat;
+  width: 100%
+}
+
+.jumbotron {
+  background-color: rgba(192,192,192,0.6)
+
 }
