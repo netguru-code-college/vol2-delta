@@ -19,4 +19,4 @@
             %td= get_route_grade(climbing_route.route_grade_id)
             %td= climbing_route.number_of_ascents
             %td= link_to 'Show', crag_sector_climbing_route_path(climbing_route.sector.crag, climbing_route.sector, climbing_route)
-  =will_paginate @climbing_routes, renderer: BootstrapPagination::Rails
+    =paginate @climbing_routes
