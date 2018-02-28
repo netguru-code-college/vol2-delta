@@ -20,5 +20,4 @@ Rails.application.routes.draw do
   get '/sectors', to: 'sectors#index'
   get '/climbing_routes', to: 'climbing_routes#show_all_climbing_routes'
   get '/user/:id', to: 'user_profile#show', as: 'show_user'
-  get '/ascents', to: 'ascents#index'
 end
