@@ -18,10 +18,5 @@ Rails.application.routes.draw do
   end
   resources :sectors, only: [:new, :create]
   get '/sectors', to: 'sectors#index'
-  get '/climbing_routes', to: 'climbing_routes#show_all_climbing_routes'
-<<<<<<< HEAD
-  get '/ascents', to: 'ascents#index'
-=======
-  get '/user/:id', to: 'user_profile#show', as: 'show_user'
->>>>>>> user-profile-pages
+  get '/climbing_routes', to: 'climbing_routes#show_all_climbing_routes'>>>>>>> user-profile-pages
 end
