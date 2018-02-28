@@ -1,0 +1,19 @@
+.jumbotron.jumbotron-fluid
+  .container
+    %h1.display-4= @user.first_name + " " + @user.last_name
+    %h2.display-5= "Total points: " + @user.total_points.to_s
+    %h2.display-5 Ascents:
+    %table.table.table-striped
+      %thead
+        %tr
+          %td No.
+          %td Climbing route
+          %td Grade
+          %td Points
+      %tbody
+        -@user.ascents.each_with_index do |ascent, i|
+          %tr
+            %td= i + 1
+            %td= ascent.climbing_route.name
+            %td= find_ascent_grade ascent.climbing_route.route_grade_id
+            %td= ascent.points
