@@ -1,5 +1,6 @@
 class SectorsController < ApplicationController
-  before_action :set_sector, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_sector, only: [:show, :edit, :update, :destroy]
 
   def index
     @sectors = Sector.all
