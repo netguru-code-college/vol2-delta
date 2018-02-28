@@ -12,11 +12,12 @@ Rails.application.routes.draw do
   resources :crags do
     resources :sectors, except: [:new, :create] do
       resources :climbing_routes do
-        resources :ascents
+        resources :ascents, except: [:index]
       end
     end
   end
   resources :sectors, only: [:new, :create]
   get '/sectors', to: 'sectors#index'
   get '/climbing_routes', to: 'climbing_routes#show_all_climbing_routes'
+  get '/ascents', to: 'ascents#index'
 end
