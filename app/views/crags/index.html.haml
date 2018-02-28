@@ -3,15 +3,27 @@
     - if flash[:notice]
       %div.alert.alert-success
         = flash[:notice]
-    %h1.display-4 
+    %h1.display-4
       Crags
-    =link_to "New", new_crag_path
-    %div.row
-      %div.col-sm-8
-        =render 'shared/gmap'
-      %div.col-sm-3
-        %ul.list-group
-          -@crags.each do |crag|
-            %li.list-group-item
-              =link_to crag.name, crag_path(crag)
-              =link_to "Edit", edit_crag_path(crag)
+    =render 'shared/gmap'
+    %h1.display-4 List of all crags
+    %table.table.table-striped
+      %thead
+        %tr
+          %td ID
+          %td Name
+          %td Country
+          %td Number of sectors
+          %td Actions
+      %tbody
+        - @crags.each do |crag|
+          %tr
+            %td= crag.id
+            %td= link_to crag.name, crag_path(crag)
+            %td= crag.country
+            %td= crag.sectors.count.to_s
+            %td
+              = link_to 'Edit | ', edit_crag_path(crag)
+              = link_to "Delete", crag_path(crag), method: :delete
+    %br
+    =link_to "New crag", new_crag_path, class: 'btn btn-primary'
