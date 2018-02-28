@@ -1,5 +1,7 @@
-class AscentController < ApplicationController
-  before_action :set_ascent, only: %i[show edit update destroy]
+class AscentsController < ApplicationController
+  before_action :set_ascent, only: [:show, :edit, :update, :destroy]
+  before_action :climbing_route_params, only: [:new, :create, :show, :edit, :update, :destroy]
+  # before_action :set_user, only: [:new, :create, :show]
 
   # GET /lists
   def index
@@ -7,10 +9,13 @@ class AscentController < ApplicationController
   end
 
   # GET /lists/1
-  def show; end
+  def show
+  
+  end
 
   # GET /lists/new
   def new
+
     @ascent = Ascent.new
   end
 
@@ -24,7 +29,7 @@ class AscentController < ApplicationController
     if @ascent.save
       redirect_to ascents_path, notice: 'Ascent was successfully added to database.'
     else
-      render :new
+      render :new, notice: 'Missing fields'
     end
   end
 
@@ -52,10 +57,15 @@ class AscentController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def ascent_params
-    params.require(:ascent).permit(:grade, :comment, :date, :style)
+    params.require(:ascent).permit(:comment, :date, :style)
   end
 
   # Find climbing route to add ascent.
   def climbing_route_params
-     @climbing_route = ClimbingRoute.find(params[:id])
+    @climbing_route = ClimbingRoute.eager_load(sector: :crag).find(params[:climbing_route_id])
   end
+
+  def set_user
+    @user = current_user
+  end
+end
