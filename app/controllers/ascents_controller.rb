@@ -1,7 +1,5 @@
-class AscentsController < ApplicationController
+class AscentController < ApplicationController
   before_action :set_ascent, only: [:show, :edit, :update, :destroy]
-  before_action :climbing_route_params, only: [:new, :create, :show, :edit, :update, :destroy]
-  # before_action :set_user, only: [:new, :create, :show]
 
   # GET /lists
   def index
@@ -10,27 +8,27 @@ class AscentsController < ApplicationController
 
   # GET /lists/1
   def show
-  
   end
 
   # GET /lists/new
   def new
-
     @ascent = Ascent.new
   end
-
-  # GET /lists/1/edit
-  def edit; end
 
   # POST /lists
   def create
     @ascent = Ascent.new(ascent_params)
 
     if @ascent.save
+      # add_climbing_route
       redirect_to ascents_path, notice: 'Ascent was successfully added to database.'
     else
-      render :new, notice: 'Missing fields'
+      render :new
     end
+  end
+
+  # GET /lists/1/edit
+  def edit
   end
 
   # PATCH/PUT /lists/1
@@ -50,22 +48,42 @@ class AscentsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_ascent
-    @ascent = Ascent.find(params[:id])
-  end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_ascent
+      @ascent = Ascent.find(params[:id])
+    end
 
-  # Only allow a trusted parameter "white list" through.
-  def ascent_params
-    params.require(:ascent).permit(:comment, :date, :style)
-  end
+    # Only allow a trusted parameter "white list" through.
+    def ascent_params
+      params.require(:ascent).permit(:grade, :comment, :date, :style)
+    end
 
-  # Find climbing route to add ascent.
-  def climbing_route_params
-    @climbing_route = ClimbingRoute.eager_load(sector: :crag).find(params[:climbing_route_id])
-  end
+    # Find climbing route to add ascent.
+    def climbing_route_params
+       @climbing_route = ClimbingRoute.find(params[:id])
+    end
 
-  def set_user
-    @user = current_user
-  end
+    def add_climbing_route
+      # climbing_routes_service = ClimbingRouteServices::AddClimbingRoute.new(climbing_route_params)
+      # if climbing_routes_service.present?
+      #   redirect_to 
+    end
 end
+  
+
+  # def add_climbing_route
+  #   # params[:x], params[y]
+  #   cs = ClimbingRouteServices::AddClimbingRoute.new(Mountain.first.id, clibing_params)
+  #   if cs.present?
+  #     rediredt_to some_path, message: 'yeeey'
+  #     gc = UserServices::CheckCouponAvailability.new
+  #     if gc.present?
+  #       CouponServices::GenerateCoupon
+  #     else 
+  #       redirect_to root_path, message: 'go home'
+  #     end
+  #   else 
+  #     redirect_to root_path, error: 'smth goes wrong'
+  #   end   
+
+  # end
