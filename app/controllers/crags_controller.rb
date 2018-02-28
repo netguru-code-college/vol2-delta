@@ -1,6 +1,6 @@
 class CragsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_crag, only: %i[show edit update destroy]
+  before_action :set_crag, only: [:show, :edit, :update, :destroy]
 
   # GET /crags
   # GET /crags.json
