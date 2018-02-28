@@ -1,15 +1,16 @@
-.container
-  .row
-    .col.col-md-4
-      %h3  Sector name:
-      =@sector.name
-      %h3 Sector aspect:
-      =@sector.aspect
-      %h3 Sector latitude:
-      =@sector.latitude
-      %h3 Sector longitude:
-      =@sector.longitude
-      %h3 Sector crag:
-      =@sector.crag.name
-      =link_to 'Edit', edit_crag_sector_path(@sector.crag, @sector)
-      =link_to 'Delete', crag_sector_path(@sector.crag, @sector), method: :delete, data: {confirm: 'Are you sure'}
+.jumbotron.jumbotron-fluid
+  .container
+    .row
+      .col.col-md-4
+        %h3  Sector name:
+        =@sector.name
+        %h3 Sector aspect:
+        =@sector.aspect
+        %h3 Sector latitude:
+        =@sector.latitude
+        %h3 Sector longitude:
+        =@sector.longitude
+        %h3 Sector crag:
+        =@sector.crag.name
+        =link_to 'Edit', edit_crag_sector_path(@sector.crag, @sector)
+        =link_to 'Delete', crag_sector_path(@sector.crag, @sector), method: :delete, data: {confirm: 'Are you sure'}

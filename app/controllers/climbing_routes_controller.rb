@@ -45,7 +45,7 @@ class ClimbingRoutesController < ApplicationController
   end
 
   def show_all_climbing_routes
-    @climbing_routes = ClimbingRoute.show_all_climbing_routes
+    @climbing_routes = ClimbingRoute.show_all_climbing_routes.paginate(:page => params[:page], :per_page => 25)
   end
 
   private
