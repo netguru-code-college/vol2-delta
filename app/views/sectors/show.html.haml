@@ -14,3 +14,20 @@
         =@sector.crag.name
         =link_to 'Edit', edit_crag_sector_path(@sector.crag, @sector)
         =link_to 'Delete', crag_sector_path(@sector.crag, @sector), method: :delete, data: {confirm: 'Are you sure'}
+      .col.col-md-7
+        %h3 Climbing routes in this sector:
+        %table.table.table-striped
+          %thead
+            %tr
+              %td No.
+              %td Name
+              %td Grade
+              %td Acents amount
+          %tbody
+            - @sector.climbing_routes.each_with_index do |climbing_route, i|
+              %tr
+                %td= i+1
+                %td= link_to climbing_route.name,
+                  crag_sector_climbing_route_path(@sector.crag, @sector, climbing_route)
+                %td= get_route_grade(climbing_route.route_grade_id)
+                %td= climbing_route.number_of_ascents
