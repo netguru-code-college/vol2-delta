@@ -4,6 +4,31 @@
     - if flash[:alert]
       %div.alert.alert-danger
         = flash[:alert]
-    = render 'new_form'
+    %div#map{style: 'width: auto; height: 500px', data: ''}
+
+    :javascript
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: {id: 'map'}}, function(){
+      var markers = handler.addMarkers(#{raw @crags_hash.to_json});
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      });
+
+    =form_for @crag do |f|
+
+      =f.label :name, class: 'form-group'
+      =f.text_field :name, class: 'form-control'
+      %br/
+      =f.label :country, class: 'form-group'
+      =f.country_select(:country,  {:prompt => "Select country..."}, {:selected => "PL", class: 'form-control'})
+      %br/
+      =f.label :latitude, class: 'form-group'
+      =f.text_field :latitude, class: 'form-control'
+
+      =f.label :longitude, class: 'form-group'
+      =f.text_field :longitude, class: 'form-control'
+      %br/
+      .form-group
+        =f.submit class: 'btn btn-success'
 
     = link_to 'Back', crags_path
