@@ -4,15 +4,49 @@
     - if flash[:alert]
       %div.alert.alert-danger
         = flash[:alert]
-    %div#map{style: 'width: auto; height: 500px', data: ''}
+    #floating-panel
+      %input#address{:type => "textbox", :value => "Netguru, Poznań"}/
+      %input#submit{:type => "button", :value => "Find location"}/
+
+    %div#map{style: 'width: auto; height: 500px'}
 
     :javascript
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: {id: 'map'}}, function(){
-      var markers = handler.addMarkers(#{raw @crags_hash.to_json});
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      });
+      var markers = [];
+
+      function initMap() {
+          var map = new google.maps.Map(document.getElementById('map'),
+          {
+            zoom: 8,
+            center: {lat: 51.509865, lng: -0.118092}
+          });
+          var geocoder = new google.maps.Geocoder();
+
+          document.getElementById('submit').addEventListener('click', function()
+          {
+            geocodeAddress(geocoder, map);
+          });
+        }
+
+        function geocodeAddress(geocoder, resultsMap) {
+          markers = [];
+          var address = document.getElementById('address').value;
+          geocoder.geocode({'address': address}, function(results, status) {
+            if (status === 'OK') {
+              resultsMap.setCenter(results[0].geometry.location);
+              var marker = new google.maps.Marker({
+                map: resultsMap,
+                position: results[0].geometry.location
+              });
+              
+              document.getElementById('crag_latitude').value = results[0].geometry.location.lat();
+              document.getElementById('crag_longitude').value = results[0].geometry.location.lng();
+            } else
+            {
+              alert('Geocode was not successful for the following reason: ' + status);
+            }
+          });
+        }
+        initMap();
 
     =form_for @crag do |f|
 
