@@ -45,7 +45,7 @@ class ClimbingRoutesController < ApplicationController
   end
 
   def show_all_climbing_routes
-    @climbing_routes = ClimbingRoute.show_all_climbing_routes
+    @climbing_routes = ClimbingRoute.show_all_climbing_routes.page(params[:page]).per(10)
   end
 
   private
@@ -55,6 +55,6 @@ class ClimbingRoutesController < ApplicationController
   end
 
   def climbing_route_params
-    params.require(:climbing_route).permit(:name, :number_of_ascents, :sector_id, :route_grade_id)
+    params.require(:climbing_route).permit(:name, :number_of_ascents, :sector_id, :route_grade_id, :page)
   end
 end
