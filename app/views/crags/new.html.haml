@@ -1,9 +1,9 @@
 .jumbotron.jumbotron-fluid
   .container
     %h1 New crag
-    - if flash[:notice]
+    - if flash[:alert]
       %div.alert.alert-danger
-        = flash[:notice]
+        = flash[:alert]
     = render 'new_form'
 
     = link_to 'Back', crags_path
