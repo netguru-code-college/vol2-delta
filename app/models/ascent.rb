@@ -10,11 +10,10 @@ class Ascent < ApplicationRecord
   private
 
   def calculate_points
-    self.points = climbing_route.route_grade.points + ascent_style.points
+    AscentCalculations::CalculatePoints.new(ascent: self).call
   end
 
   def calculate_user_total_points
-    self.user.total_points += self.points
-    self.user.save!
+    AscentCalculations::CalculateUserTotalPoints.new(ascent: self).call
   end
 end
