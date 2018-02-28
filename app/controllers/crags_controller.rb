@@ -35,7 +35,7 @@ class CragsController < ApplicationController
     if @crag.save
       redirect_to crag_path(@crag), notice: "Crag was successfully created"
     else
-      render 'new'
+      redirect_to new_crag_path(@crag), notice: "Crag was not created"
     end
   end
 
