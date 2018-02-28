@@ -1,18 +1,19 @@
-.container
-  %h1
-    Route
-    = " #{@climbing_route.id}"
-  %h2 Route data:
-  %p
-    Route name:
-    = @climbing_route.name
-  %p
-    Route grade:
-    = get_route_grade(@climbing_route.route_grade_id)
-  %p
-    Ascents amount:
-    = @climbing_route.number_of_ascents
-  %p
-    Sector name:
-    = @climbing_route.sector.name
-  = render 'link_back'
+.jumbotron.jumbotron-fluid
+  .container
+    %h1
+      Route
+      = " #{@climbing_route.id}"
+    %h2 Route data:
+    %p
+      Route name:
+      = @climbing_route.name
+    %p
+      Route grade:
+      = get_route_grade(@climbing_route.route_grade_id)
+    %p
+      Ascents amount:
+      = @climbing_route.number_of_ascents
+    %p
+      Sector name:
+      = @climbing_route.sector.name
+    = render 'link_back'
