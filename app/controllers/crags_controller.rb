@@ -4,7 +4,7 @@ class CragsController < ApplicationController
   # GET /crags
   # GET /crags.json
   def index
-    @crags = Crag.all
+    @crags = Crag.includes(:sectors).all
 
     @crags_hash = Gmaps4rails.build_markers(@crags) do |crag, marker|
       marker.lat crag.latitude
@@ -35,7 +35,7 @@ class CragsController < ApplicationController
     if @crag.save
       redirect_to crag_path(@crag), notice: "Crag was successfully created"
     else
-      render 'new'
+      redirect_to new_crag_path(@crag), notice: "Crag was not created"
     end
   end
 
