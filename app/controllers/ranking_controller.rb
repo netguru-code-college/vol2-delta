@@ -1,3 +1,5 @@
 class RankingController < ApplicationController
-  def index; end
+  def index
+    @users = User.top_ten
+  end
 end
