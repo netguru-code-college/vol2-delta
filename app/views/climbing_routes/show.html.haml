@@ -29,7 +29,7 @@
             - @climbing_route.ascents.each_with_index do |ascent, i|
               %tr
                 %td= i+1
-                %td= link_to ascent.user.email, show_user_path(ascent.user)
+                %td= link_to user_full_name(user: ascent.user), show_user_path(ascent.user)
                 %td= ascent.date.strftime("%d %B %Y")
                 %td= ascent.points
                 %td= get_ascent_style(ascent.ascent_style_id)
