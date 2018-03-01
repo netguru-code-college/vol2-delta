@@ -1,8 +1,5 @@
 .jumbotron.jumbotron-fluid
   .container
-    - if flash[:notice]
-      %div.alert.alert-success
-        = flash[:notice]
     %h1.display-4
       Crags
     =render 'shared/gmap'
