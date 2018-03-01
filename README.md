@@ -34,6 +34,7 @@ $ bundle
 4. Create and seed database:
 ```bash
 $ rails db:create
+$ rails db:migrate
 $ rails db:seed
 ```
 
