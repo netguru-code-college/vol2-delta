@@ -1,5 +1,6 @@
 .jumbotron.jumbotron-fluid
   .container
+    = link_to 'Back', crag_sector_climbing_route_path(@climbing_route.sector.crag, @climbing_route.sector, @climbing_route)
     %h2 Add new ascent
     %table.table.table-striped
       %thead
@@ -25,8 +26,4 @@
       = f.hidden_field :user_id, value: current_user.id
       %p
       = f.submit "Submit", class: "btn btn-primary"
-      %p
-
-
-= link_to 'Back', crag_sector_climbing_route_ascents_path
-
+   

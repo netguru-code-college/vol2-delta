@@ -14,7 +14,8 @@ class AscentsController < ApplicationController
     @ascent = Ascent.new
   end
 
-  def edit; end
+  def edit
+  end
 
   def create
     @ascent = Ascent.new(ascent_params)
@@ -32,7 +33,7 @@ class AscentsController < ApplicationController
 
   def update
     if @ascent.update(ascent_params)
-      redirect_to ascents_url, notice: 'Ascent was successfully updated.'
+      redirect_to show_user_path(current_user), notice: 'Ascent was successfully updated.'
     else
       render :edit
     end
@@ -40,7 +41,7 @@ class AscentsController < ApplicationController
 
   def destroy
     @ascent.destroy
-    redirect_to ascents_url, notice: 'Ascent was successfully deleted.'
+    redirect_to show_user_path(current_user), notice: 'Ascent was successfully deleted.'
   end
 
   private
