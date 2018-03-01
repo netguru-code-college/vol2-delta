@@ -1,9 +1,6 @@
 .jumbotron.jumbotron-fluid
   .container
     %h1 New crag
-    - if flash[:alert]
-      %div.alert.alert-danger
-        = flash[:alert]
     #floating-panel
       %input#address{:type => "textbox", :value => "Netguru, Poznań"}/
       %input#submit{:type => "button", :value => "Find location"}/
