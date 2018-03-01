@@ -1,6 +1,6 @@
 # Sandbag
 ***
-[![Netguru Code College](https://avatars3.githubusercontent.com/u/36675913?s=200&v=4)](https://github.com/netguru-code-college)
+[![Netguru Code College](https://avatars0.githubusercontent.com/u/36675913?s=70&v=4)](https://github.com/netguru-code-college)
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://sandbag.herokuapp.com/)
 [![Build Status](https://travis-ci.org/netguru-code-college/vol2-delta.svg?branch=master)](https://travis-ci.org/netguru-code-college/vol2-delta)
 
