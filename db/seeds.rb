@@ -43,7 +43,7 @@ AscentStyle.create(style: 'RP', points: 0)
 AscentStyle.create(style: 'OS', points: 150)
 AscentStyle.create(style: 'FL', points: 50)
 
-puts '3 ascent style created'
+puts "#{AscentStyle.all.count} ascent style created"
 
 RouteGrade.create(grade: '6a', points: 100)
 RouteGrade.create(grade: '6a+', points: 150)
