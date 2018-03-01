@@ -14,6 +14,8 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require lib/typed
+//= require typed-thanks
 //= require turbolinks
 //= require_tree .
 //= require underscore

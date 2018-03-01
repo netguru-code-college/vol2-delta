@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   get '/climbing_routes', to: 'climbing_routes#show_all_climbing_routes'
   get '/ascents', to: 'ascents#index'
   get '/user/:id', to: 'user_profile#show', as: 'show_user'
+  get 'kudos', to: 'static_pages#thanks'
 end

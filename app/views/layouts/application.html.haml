@@ -1,9 +1,10 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{content:  "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Sandbag
     = csrf_meta_tags
+    %link{href: "https://fonts.googleapis.com/css?family=Lato", rel: "stylesheet"}/
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyC45i8eK182AaWqEcDddgIasweTk868jhk"

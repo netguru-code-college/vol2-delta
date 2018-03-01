@@ -6,6 +6,9 @@ html {
 
 body {
   min-height: 100%;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
 }
 
 nav {
@@ -18,12 +21,51 @@ nav {
 
 body#static-pages-index {
   background: image-url('sunrise-in-the-mountains.jpg') no-repeat;
-  width: 100%
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  h1{
+    font-weight: 600;
+  }
+  .lead{
+    font-weight: 500;
+  }
 }
+
 
 .jumbotron {
   background-color: rgba(192,192,192,0.6)
+}
 
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Padding for spacing */
+.inner {
+  padding: 2rem;
+}
+
+/*
+ * Cover
+ */
+
+.cover {
+  padding: 0 1.5rem;
+}
+
+nav{
+  font-family: 'Lato', sans-serif;
+}
+
+body#static-pages-thanks {
+  background: image-url('sunrise-in-the-mountains.jpg') no-repeat;
+  width: 100%;
+  h1{
+    font-size: 75px;
+    font-weight: 500;
+    font-family: 'Lato', sans-serif;
+  }
 }
 
 #last_ascents
