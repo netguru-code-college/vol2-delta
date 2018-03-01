@@ -2,38 +2,35 @@
   .container
     .row
       .col.col-md-4
-        %h1
-          Route
-          = " #{@climbing_route.id}"
-        %h2 Route data:
-        %p
-          Route name:
-          = @climbing_route.name
-        %p
-          Route grade:
-          = get_route_grade(@climbing_route.route_grade_id)
-        %p
-          Ascents amount:
-          = @climbing_route.number_of_ascents
-        %p
-          Sector name:
-          = @climbing_route.sector.name
+        %h1.display-4= @climbing_route.name
+        %h3 Route grade:
+        %p= get_route_grade(@climbing_route.route_grade_id)
+        %h3 Ascents amount:
+        %p= @climbing_route.number_of_ascents
+        %h3 Sector name:
+        %p= @climbing_route.sector.name
+        %h3 Crag name
+        %p= @climbing_route.sector.crag.name
         = render 'link_back'
         = link_to 'Add ascent to this climbing route',
           new_crag_sector_climbing_route_ascent_path(@climbing_route.sector.crag, @climbing_route.sector, @climbing_route),
           class: 'btn btn-success'
-      .col.col-md-7
+      .col.col-md-8
         %table.table.table-striped
           %thead
             %tr
               %td No.
               %td User
+              %td Date
               %td Points
               %td Ascent style
+              %td Comment
           %tbody
             - @climbing_route.ascents.each_with_index do |ascent, i|
               %tr
                 %td= i+1
                 %td= link_to ascent.user.email, show_user_path(ascent.user)
+                %td= ascent.date.strftime("%d %B %Y")
                 %td= ascent.points
                 %td= get_ascent_style(ascent.ascent_style_id)
+                %td= ascent.comment
