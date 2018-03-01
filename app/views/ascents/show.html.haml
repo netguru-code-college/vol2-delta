@@ -1,5 +1,5 @@
-%h1 Ascents:
-%h3 List of all ascents in Sandbag
+%h2 Ascent:
+%h3= @climbing_route.name
 %table.table.table-striped
   %thead
     %tr
@@ -22,8 +22,7 @@
       %td= @ascent.comment
       %td= @ascent.date.strftime("%d %B %Y")
       %td
-        = link_to 'Edit | ',edit_crag_sector_climbing_route_ascent_path(ascent.climbing_route.sector.crag, ascent.climbing_route.sector, ascent.climbing_route, ascent)
-        = link_to 'Show | ',crag_sector_climbing_route_ascent_path(ascent.climbing_route.sector.crag, ascent.climbing_route.sector, ascent.climbing_route, ascent)
-        = link_to 'Delete',crag_sector_climbing_route_ascent_path(ascent.climbing_route.sector.crag, ascent.climbing_route.sector, ascent.climbing_route, ascent),
+        = link_to 'Edit | ',edit_crag_sector_climbing_route_ascent_path(@ascent.climbing_route.sector.crag, @ascent.climbing_route.sector, @ascent.climbing_route, @ascent)
+        = link_to 'Delete',crag_sector_climbing_route_ascent_path(@ascent.climbing_route.sector.crag, @ascent.climbing_route.sector, @ascent.climbing_route, @ascent),
           method: :destroy, data: {confirm: "Are you sure?"}
 

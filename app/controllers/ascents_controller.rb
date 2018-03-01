@@ -15,6 +15,7 @@ class AscentsController < ApplicationController
   end
 
   def edit
+    # binding.pry
   end
 
   def create
