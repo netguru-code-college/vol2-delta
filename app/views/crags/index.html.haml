@@ -27,6 +27,7 @@
               - if current_user
                 = link_to 'Edit | ', edit_crag_path(crag)
                 = link_to "Delete", crag_path(crag), method: :delete
+    =paginate @crags
     %br
     - if current_user
       =link_to "New crag", new_crag_path, class: 'btn btn-primary'
