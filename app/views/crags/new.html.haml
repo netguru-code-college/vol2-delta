@@ -1,9 +1,68 @@
 .jumbotron.jumbotron-fluid
   .container
     %h1 New crag
-    - if flash[:notice]
+    - if flash[:alert]
       %div.alert.alert-danger
-        = flash[:notice]
-    = render 'new_form'
+        = flash[:alert]
+    #floating-panel
+      %input#address{:type => "textbox", :value => "Netguru, Poznań"}/
+      %input#submit{:type => "button", :value => "Find location"}/
+
+    %div#map{style: 'width: auto; height: 500px'}
+
+    :javascript
+      var markers = [];
+
+      function initMap() {
+          var map = new google.maps.Map(document.getElementById('map'),
+          {
+            zoom: 8,
+            center: {lat: 51.509865, lng: -0.118092}
+          });
+          var geocoder = new google.maps.Geocoder();
+
+          document.getElementById('submit').addEventListener('click', function()
+          {
+            geocodeAddress(geocoder, map);
+          });
+        }
+
+        function geocodeAddress(geocoder, resultsMap) {
+          markers = [];
+          var address = document.getElementById('address').value;
+          geocoder.geocode({'address': address}, function(results, status) {
+            if (status === 'OK') {
+              resultsMap.setCenter(results[0].geometry.location);
+              var marker = new google.maps.Marker({
+                map: resultsMap,
+                position: results[0].geometry.location
+              });
+              
+              document.getElementById('crag_latitude').value = results[0].geometry.location.lat();
+              document.getElementById('crag_longitude').value = results[0].geometry.location.lng();
+            } else
+            {
+              alert('Geocode was not successful for the following reason: ' + status);
+            }
+          });
+        }
+        initMap();
+
+    =form_for @crag do |f|
+
+      =f.label :name, class: 'form-group'
+      =f.text_field :name, class: 'form-control'
+      %br/
+      =f.label :country, class: 'form-group'
+      =f.country_select(:country,  {:prompt => "Select country..."}, {:selected => "PL", class: 'form-control'})
+      %br/
+      =f.label :latitude, class: 'form-group'
+      =f.text_field :latitude, class: 'form-control'
+
+      =f.label :longitude, class: 'form-group'
+      =f.text_field :longitude, class: 'form-control'
+      %br/
+      .form-group
+        =f.submit class: 'btn btn-success'
 
     = link_to 'Back', crags_path
