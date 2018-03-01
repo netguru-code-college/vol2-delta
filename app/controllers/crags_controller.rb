@@ -32,6 +32,7 @@ class CragsController < ApplicationController
 
   # POST /crags
   def create
+    params[:crag][:country] = country_name crag_params[:country]
     @crag = Crag.new(crag_params)
     if @crag.save
       redirect_to crag_path(@crag), notice: 'Crag was successfully created'
@@ -43,6 +44,7 @@ class CragsController < ApplicationController
   # PATCH/PUT /crags/1
   # PATCH/PUT /crags/1.json
   def update
+    params[:crag][:country] = country_name crag_params[:country]
     respond_to do |format|
       if @crag.update(crag_params)
         format.html { redirect_to @crag, notice: 'Crag was successfully updated.' }
@@ -73,4 +75,10 @@ class CragsController < ApplicationController
   def crag_params
     params.require(:crag).permit(:name, :country, :latitude, :longitude, :page)
   end
+
+  def country_name country_code
+    country = ISO3166::Country[country_code]
+    country.translations[I18n.locale.to_s] || country.name
+  end
+
 end

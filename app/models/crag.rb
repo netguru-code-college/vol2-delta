@@ -4,5 +4,4 @@ class Crag < ApplicationRecord
   validates :country, presence: true
   validates :longitude, presence: true
   validates :latitude, presence: true
-  
 end
