@@ -9,6 +9,9 @@ body {
   color: #fff;
   text-align: center;
   text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
+  background: image-url('sunrise-in-the-mountains.jpg') no-repeat;
+  width: 100%;
+  background-attachment: fixed;
 }
 
 nav {
@@ -20,7 +23,6 @@ nav {
 }
 
 body#static-pages-index {
-  background: image-url('sunrise-in-the-mountains.jpg') no-repeat;
   width: 100%;
   font-family: 'Lato', sans-serif;
   h1{
@@ -28,12 +30,13 @@ body#static-pages-index {
   }
   .lead{
     font-weight: 500;
+    margin-bottom: 60px;
   }
 }
 
 
 .jumbotron {
-  background-color: rgba(192,192,192,0.6)
+  background-color: rgba(192,192,192,0.4)
 }
 
 .cover-container {
@@ -58,10 +61,9 @@ nav{
   font-family: 'Lato', sans-serif;
 }
 
-body#static-pages-thanks {
-  background: image-url('sunrise-in-the-mountains.jpg') no-repeat;
-  width: 100%;
-  h1{
+body#static-pages-thanks{
+  background-attachment: fixed;
+    h1{
     font-size: 75px;
     font-weight: 500;
     font-family: 'Lato', sans-serif;
