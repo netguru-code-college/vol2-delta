@@ -8,5 +8,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up) do |user_params|
     user_params.permit(:username, :email, :first_name, :last_name, :password)
     end
+
+    devise_parameter_sanitizer.permit(:update_account) do |user_params|
+    user_params.permit(:username, :email, :first_name, :last_name, :password)
+    end
   end
 end
