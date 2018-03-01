@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
-  def index; end
+  def index
+    @last_ascents = Ascent.all.last(10)
+  end
 
   def about; end
 
