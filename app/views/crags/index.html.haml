@@ -14,7 +14,8 @@
           %td Name
           %td Country
           %td Number of sectors
-          %td Actions
+          - if current_user
+            %td Actions
       %tbody
         - @crags.each do |crag|
           %tr
@@ -23,7 +24,9 @@
             %td= crag.country
             %td= crag.sectors.count.to_s
             %td
-              = link_to 'Edit | ', edit_crag_path(crag)
-              = link_to "Delete", crag_path(crag), method: :delete
+              - if current_user
+                = link_to 'Edit | ', edit_crag_path(crag)
+                = link_to "Delete", crag_path(crag), method: :delete
     %br
-    =link_to "New crag", new_crag_path, class: 'btn btn-primary'
+    - if current_user
+      =link_to "New crag", new_crag_path, class: 'btn btn-primary'
