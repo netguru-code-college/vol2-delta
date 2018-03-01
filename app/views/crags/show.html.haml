@@ -9,8 +9,15 @@
       %div.col-sm-5
         %h2.display-6
           Sectors in #{@crag.name}
-        %ul.list-group
-          -@crag.sectors.each do |sector|
-            %li.list-group-item= link_to sector.name, crag_sector_path(sector.crag, sector)
       %div.col-sm-5
-    = link_to 'Back', crags_path, class: 'btn btn-primary'
+      %table.table.table-striped
+        %thead
+          %tr
+            %td #
+            %td Name
+        %tbody
+          - @crag.sectors.each_with_index do |sector, i|
+            %tr
+              %td= i
+              %td= link_to sector.name, crag_sector_path(sector.crag, sector)
+      = link_to 'Back', crags_path, class: 'btn btn-primary'

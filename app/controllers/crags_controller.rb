@@ -5,7 +5,7 @@ class CragsController < ApplicationController
   # GET /crags
   # GET /crags.json
   def index
-    @crags = Crag.includes(:sectors).all
+    @crags = Crag.includes(:sectors).all.page(params[:page]).per(10)
 
     @crags_hash = Gmaps4rails.build_markers(@crags) do |crag, marker|
       marker.lat crag.latitude
@@ -36,7 +36,7 @@ class CragsController < ApplicationController
     if @crag.save
       redirect_to crag_path(@crag), notice: 'Crag was successfully created'
     else
-      redirect_to new_crag_path(@crag), notice: "Crag was not created"
+      redirect_to new_crag_path(@crag), alert: "Error: crag was not created"
     end
   end
 
@@ -71,6 +71,6 @@ class CragsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def crag_params
-    params.require(:crag).permit(:name, :country, :latitude, :longitude)
+    params.require(:crag).permit(:name, :country, :latitude, :longitude, :page)
   end
 end

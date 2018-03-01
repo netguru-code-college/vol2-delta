@@ -2,3 +2,16 @@
   .container
     %h1.display-4 Welcome to Sandbag!
     %p.lead This is our homepage
+    %h3 Last ascents:
+    %table.table.table-striped.table-hover#last_ascents
+      %thead
+        %tr
+          %td User
+          %td Date
+          %td Points
+      %tbody
+        - @last_ascents.each do |ascent|
+          %tr
+            %td= link_to ascent.user.first_name, show_user_path(ascent.user)
+            %td= ascent.date.strftime('%d %B %Y')
+            %td= ascent.points
