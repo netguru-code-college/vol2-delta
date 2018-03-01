@@ -10,11 +10,19 @@
           %td Climbing route
           %td Grade
           %td Points
+          %td Action
       %tbody
         -@ascents.each_with_index do |ascent, i|
           %tr
             %td= i + 1
-            %td= ascent.climbing_route.name
+            %td= link_to ascent.climbing_route.name, crag_sector_climbing_route_path(ascent.climbing_route.sector.crag, ascent.climbing_route.sector, ascent.climbing_route, ascent)
             %td= find_ascent_grade ascent.climbing_route.route_grade_id
             %td= ascent.points
+            %td
+              = link_to 'Edit', edit_crag_sector_climbing_route_ascent_path(ascent.climbing_route.sector.crag, ascent.climbing_route.sector, ascent.climbing_route, ascent)
+              = ' | '
+              = link_to 'Show', crag_sector_climbing_route_ascent_path(ascent.climbing_route.sector.crag, ascent.climbing_route.sector, ascent.climbing_route, ascent)
+              = ' | '
+              = link_to 'Delete',  crag_sector_climbing_route_ascent_path(ascent.climbing_route.sector.crag, ascent.climbing_route.sector, ascent.climbing_route, ascent),
+                method: :delete, data: {confirm: "Are you sure?"}
     =paginate @ascents
