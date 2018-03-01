@@ -9,6 +9,8 @@
         %p= @climbing_route.number_of_ascents
         %h3 Sector name:
         %p= @climbing_route.sector.name
+        %h3 Crag name
+        %p= @climbing_route.sector.crag.name
         = render 'link_back'
         = link_to 'Add ascent to this climbing route',
           new_crag_sector_climbing_route_ascent_path(@climbing_route.sector.crag, @climbing_route.sector, @climbing_route),
