@@ -2,18 +2,24 @@
   .container
     .row
       .col.col-md-4
-        %h3  Sector name:
-        =@sector.name
-        %h3 Sector aspect:
-        =@sector.aspect
-        %h3 Sector latitude:
-        =@sector.latitude
-        %h3 Sector longitude:
-        =@sector.longitude
-        %h3 Sector crag:
-        =@sector.crag.name
-        =link_to 'Edit', edit_crag_sector_path(@sector.crag, @sector)
-        =link_to 'Delete', crag_sector_path(@sector.crag, @sector), method: :delete, data: {confirm: 'Are you sure'}
+        %h4 Crag:
+        %h3= @sector.crag.name
+        %hr
+        %h4  Sector name:
+        %h3= @sector.name
+        %hr
+        %p Sector aspect:
+        = @sector.aspect
+        %hr
+        %p Sector latitude:
+        = @sector.latitude
+        %hr
+        %p Sector longitude:
+        = @sector.longitude
+        %hr
+        %p
+        =link_to 'Edit', edit_crag_sector_path(@sector.crag, @sector), class: 'btn btn-success'
+        =link_to 'Delete', crag_sector_path(@sector.crag, @sector), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure'}
       .col.col-md-7
         %h3 Climbing routes in this sector:
         %table.table.table-striped
@@ -23,6 +29,7 @@
               %td Name
               %td Grade
               %td Acents amount
+              %td Add route    
           %tbody
             - @sector.climbing_routes.each_with_index do |climbing_route, i|
               %tr
@@ -31,3 +38,4 @@
                   crag_sector_climbing_route_path(@sector.crag, @sector, climbing_route)
                 %td= get_route_grade(climbing_route.route_grade_id)
                 %td= climbing_route.number_of_ascents
+                %td= link_to 'Add', new_crag_sector_climbing_route_ascent_path(climbing_route.sector.crag, climbing_route.sector, climbing_route), class: 'btn btn-success'
