@@ -12,9 +12,6 @@ module ApplicationHelper
     "#{controller.controller_name.dasherize}-#{controller.action_name.dasherize}"
   end
 
-  def navbar_helper
-  end
-
   def nav_items
     [
       {
