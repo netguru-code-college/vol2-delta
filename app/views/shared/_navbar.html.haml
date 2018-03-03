@@ -4,21 +4,7 @@
     %span.navbar-toggler-icon
   #navbarNav.collapse.navbar-collapse
     %ul.navbar-nav
-      %li.nav-item.active
-        =link_to 'Home', root_path, class: 'nav-link'
-        %span.sr-only (current)
-      %li.nav-item
-        =link_to 'Ranking', ranking_index_path, class: 'nav-link'
-      %li.nav-item
-        =link_to 'Crags', crags_path, class: 'nav-link'
-      %li.nav-item
-        =link_to 'Climbing routes', climbing_routes_path, class: 'nav-link'
-      %li.nav-item
-        =link_to 'Rules', rules_path, class: 'nav-link'
-      %li.nav-item
-        =link_to 'Contact', contact_path, class: 'nav-link'
-      %li.nav-item
-        =link_to 'About', about_path, class: 'nav-link'
+      = nav_helper('nav-link', 'li')
       %li.nav-item
   - if current_user
     %a.nav-link.disabled{href: edit_user_registration_path}= current_user.email
