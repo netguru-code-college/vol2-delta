@@ -15,7 +15,6 @@ class AscentsController < ApplicationController
   end
 
   def edit
-    # binding.pry
   end
 
   def create
@@ -24,7 +23,7 @@ class AscentsController < ApplicationController
       redirect_to crag_sector_climbing_route_path(
         @ascent.climbing_route.sector.crag,
         @ascent.climbing_route.sector,
-        @ascent.climbing_route), 
+        @ascent.climbing_route),
       notice: 'Ascent was successfully added to database.'
     else
       render :new, notice: 'Missing fields'
@@ -45,19 +44,18 @@ class AscentsController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
   def set_ascent
     @ascent = Ascent.find(params[:id])
   end
-  # Only allow a trusted parameter "white list" through.
+
   def ascent_params
     params.require(:ascent).permit(:comment, :date, :user_id, :ascent_style_id, :climbing_route_id)
   end
-  # Find climbing route to add ascent.
+
   def climbing_route_params
     @climbing_route = ClimbingRoute.eager_load(sector: :crag).find(params[:climbing_route_id])
   end
-
+  
   def set_user
     @user = current_user
   end
