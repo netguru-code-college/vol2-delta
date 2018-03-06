@@ -2,35 +2,26 @@ class CragsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_crag, only: [:show, :edit, :update, :destroy]
 
-  # GET /crags
-  # GET /crags.json
   def index
-    @crags = Crag.includes(:sectors).all.page(params[:page]).per(10)
+     @crags = Crag.includes(:sectors).all.page(params[:page]).per(10)
 
-    @crags_hash = Gmaps4rails.build_markers(@crags) do |crag, marker|
-      marker.lat crag.latitude
-      marker.lng crag.longitude
-      marker.infowindow crag.name
-    end
+     @crags_hash = Gmaps4rails.build_markers(@crags) do |crag, marker|
+       marker.lat crag.latitude
+       marker.lng crag.longitude
+       marker.infowindow crag.name
+     end
   end
 
-  # GET /crags/1
-  # GET /crags/1.json
   def show
-    @crag = Crag.find(params[:id])
   end
 
-  # GET /crags/new
   def new
     @crag = Crag.new
   end
 
-  # GET /crags/1/edit
   def edit
-    @crag = Crag.find(params[:id])
   end
 
-  # POST /crags
   def create
     params[:crag][:country] = country_name crag_params[:country]
     @crag = Crag.new(crag_params)
@@ -41,8 +32,6 @@ class CragsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /crags/1
-  # PATCH/PUT /crags/1.json
   def update
     params[:crag][:country] = country_name crag_params[:country]
     respond_to do |format|
@@ -56,7 +45,6 @@ class CragsController < ApplicationController
     end
   end
 
-  # DELETE /crags/1
   def destroy
     @crag.destroy
     respond_to do |format|
@@ -66,12 +54,10 @@ class CragsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_crag
     @crag = Crag.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def crag_params
     params.require(:crag).permit(:name, :country, :latitude, :longitude, :page)
   end
