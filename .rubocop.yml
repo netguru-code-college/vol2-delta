@@ -36,6 +36,8 @@ Layout/MultilineOperationIndentation:
   SupportedStyles:
     - aligned
     - indented
+Style/EmptyMethod:
+  Enabled: false
 Style/Lambda:
   Enabled: false
 Style/StringLiterals:
