@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'ranking/index'
+  get '/ranking', to: 'ranking#index', as: 'ranking'
 
   root 'static_pages#index'
   devise_for :users
