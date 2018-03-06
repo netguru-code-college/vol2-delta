@@ -1,8 +1,7 @@
 class ClimbingRoutesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  attr_accessor :name, :grade, :number_of_ascents, :route_grade_id
-
   before_action :fetch_climbing_route, only: %i[show update edit destroy]
+
   def index
     @climbing_routes = ClimbingRoute.in_crag_and_sector(
       params[:sector_id],
