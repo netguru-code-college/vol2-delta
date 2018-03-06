@@ -6,7 +6,8 @@ class SectorsController < ApplicationController
     @sectors = Sector.all
   end
 
-  def show; end
+  def show
+  end
 
   def new
     @sector = Sector.new

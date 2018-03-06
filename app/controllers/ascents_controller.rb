@@ -22,10 +22,9 @@ class AscentsController < ApplicationController
     @ascent = Ascent.new(ascent_params)
     if @ascent.save
       redirect_to crag_sector_climbing_route_path(
-        @ascent.climbing_route.sector.crag, 
-        @ascent.climbing_route.sector, 
-        @ascent.climbing_route
-        ), 
+        @ascent.climbing_route.sector.crag,
+        @ascent.climbing_route.sector,
+        @ascent.climbing_route), 
       notice: 'Ascent was successfully added to database.'
     else
       render :new, notice: 'Missing fields'
@@ -63,4 +62,3 @@ class AscentsController < ApplicationController
     @user = current_user
   end
 end
-
