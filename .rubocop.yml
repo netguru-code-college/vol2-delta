@@ -1,7 +1,5 @@
 AlignParameters:
   Enabled: false
-AmbiguousBlockAssociation:
-  Enabled: false
 ClassLength:
   CountComments: false
   Max: 200
@@ -11,57 +9,62 @@ LineLength:
   Max: 120
 MethodLength:
   CountComments: false
-  Max: 20
+  Max: 15
+  Exclude:
+    - 'spec/**/*'
 Metrics/AbcSize:
- Max: 25
-Metrics/ModuleLength:
+  Max: 25
   Exclude:
-    - '**/*_spec.rb'
-Metrics/BlockLength:
+    - 'spec/**/*'
+Metrics/ParameterLists:
+  Max: 7
   Exclude:
-    - '**/*_spec.rb'
+    - 'spec/features/**/*'
 
 AllCops:
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.4.3
   Exclude:
     - 'bin/*'
     - 'db/**/*'
     - 'config/**/*'
     - 'script/**/*'
     - 'Gemfile'
+    - 'Guardfile'
+    - 'Capfile'
     - 'Rakefile'
-
+    - 'vendor/**/*'
+    - 'spec/**/*'
+Style/Lambda:
+  EnforcedStyle: literal
+Layout/DotPosition:
+  EnforcedStyle: leading
+  Enabled: true
 Layout/MultilineOperationIndentation:
   EnforcedStyle: indented
   SupportedStyles:
     - aligned
     - indented
-Style/EmptyMethod:
-  Enabled: false
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/**/*'
+Naming/PredicateName:
+  NameWhitelist:
+    - 'has_bank_account'
+    - 'has_changed_logo'
+    - 'has_created_invoice'
+    - 'has_clients?'
+    - 'has_outgoing_invoices?'
+    - 'has_proposals?'
+    - 'has_suppliers?'
 Style/Lambda:
-  Enabled: false
+  EnforcedStyle: literal
 Style/StringLiterals:
   EnforcedStyle: single_quotes
-Layout/DotPosition:
-  EnforcedStyle: leading
-  Enabled: true
 Style/FrozenStringLiteralComment:
   Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
-Style/NumericLiterals:
+Style/DateTime:
   Enabled: false
-Style/NumericLiteralPrefix:
+Style/EmptyMethod:
   Enabled: false
-Style/RescueModifier:
-  Exclude:
-    - 'spec/**/*'
-Style/TrailingCommaInLiteral:
-  EnforcedStyleForMultiline: comma
-Layout/TrailingWhitespace:
-  Enabled: false
-Layout/ExtraSpacing:
-  AllowForAlignment: true
-  ForceEqualSignAlignment: false
-  Exclude:
-    - 'spec/factories/**/*'
