@@ -1,0 +1,7 @@
+User.all.each do |user|
+  user.ascents.each do |ascent|
+    AscentServices::CalculatePoints.new(ascent: ascent).call
+    ascent.save
+    AscentServices::CalculateUserTotalPoints.new(ascent: ascent).call
+  end
+end

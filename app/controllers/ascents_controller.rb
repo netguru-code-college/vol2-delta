@@ -17,9 +17,16 @@ class AscentsController < ApplicationController
   def edit
   end
 
+  def new
+    @ascent = Ascent.new
+  end
+
   def create
     @ascent = Ascent.new(ascent_params)
+    AscentServices::CalculatePoints.new(ascent: @ascent).call
+    binding.pry
     if @ascent.save
+      AscentServices::CalculateUserTotalPoints.new(ascent: @ascent).call
       redirect_to crag_sector_climbing_route_path(
         @ascent.climbing_route.sector.crag,
         @ascent.climbing_route.sector,
@@ -55,7 +62,7 @@ class AscentsController < ApplicationController
   def climbing_route_params
     @climbing_route = ClimbingRoute.eager_load(sector: :crag).find(params[:climbing_route_id])
   end
-  
+
   def set_user
     @user = current_user
   end
