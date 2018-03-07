@@ -1,6 +1,5 @@
 module AscentServices
   class CalculateUserTotalPoints
-
     def initialize(ascent:)
       @ascent = ascent
     end
@@ -10,6 +9,7 @@ module AscentServices
     end
 
     private
+
     def calculate_user_total_points
       @ascent.user.total_points += @ascent.points
       @ascent.user.save

@@ -3,13 +3,13 @@ class CragsController < ApplicationController
   before_action :set_crag, only: [:show, :edit, :update, :destroy]
 
   def index
-     @crags = Crag.includes(:sectors).all.page(params[:page]).per(10)
+    @crags = Crag.includes(:sectors).all.page(params[:page]).per(10)
 
-     @crags_hash = Gmaps4rails.build_markers(@crags) do |crag, marker|
-       marker.lat crag.latitude
-       marker.lng crag.longitude
-       marker.infowindow crag.name
-     end
+    @crags_hash = Gmaps4rails.build_markers(@crags) do |crag, marker|
+      marker.lat crag.latitude
+      marker.lng crag.longitude
+      marker.infowindow crag.name
+    end
   end
 
   def show
@@ -62,9 +62,8 @@ class CragsController < ApplicationController
     params.require(:crag).permit(:name, :country, :latitude, :longitude, :page)
   end
 
-  def country_name country_code
+  def country_name(country_code)
     country = ISO3166::Country[country_code]
     country.translations[I18n.locale.to_s] || country.name
   end
-
 end

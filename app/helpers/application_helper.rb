@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def body_attributes
     { class: body_class, id: body_id }
   end
@@ -15,12 +14,11 @@ module ApplicationHelper
   def navbar_helper
   end
 
-
-  def navbar_active(current_controller=nil, current_action=nil)
+  def navbar_active(current_controller = nil, current_action = nil)
     if current_controller && current_action
-      (controller_name ==current_controller && action_name == current_action) ? 'active' : ''
+      return 'active' if controller_name == current_controller && action_name == current_action
     elsif current_controller
-      (controller_name == current_controller) ? 'active' : ''
+      return 'active' if controller_name == current_controller
     end
   end
 end
