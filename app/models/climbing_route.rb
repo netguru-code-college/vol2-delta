@@ -6,11 +6,11 @@ class ClimbingRoute < ApplicationRecord
   belongs_to :route_grade
   validates :name, presence: true, length: { minimum: 3, maximum: 30 }
 
-  scope :in_crag_and_sector, lambda { |sector_id, crag_id|
-                                      joins(:sector)
-                                      .where(sector_id: sector_id)
-                                      .where('sectors.crag_id = ?', crag_id)
-                                    }
+  scope :in_crag_and_sector, ->(sector_id, crag_id) do
+    joins(:sector)
+      .where(sector_id: sector_id)
+      .where('sectors.crag_id = ?', crag_id)
+  end
   scope :show_all_climbing_routes,
         -> {
           eager_load(sector: :crag)
