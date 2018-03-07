@@ -10,10 +10,6 @@ class AscentsController < ApplicationController
   def show
   end
 
-  def new
-    @ascent = Ascent.new
-  end
-
   def edit
   end
 
@@ -24,13 +20,13 @@ class AscentsController < ApplicationController
   def create
     @ascent = Ascent.new(ascent_params)
     AscentServices::CalculatePoints.new(ascent: @ascent).call
-    binding.pry
     if @ascent.save
       AscentServices::CalculateUserTotalPoints.new(ascent: @ascent).call
       redirect_to crag_sector_climbing_route_path(
         @ascent.climbing_route.sector.crag,
         @ascent.climbing_route.sector,
-        @ascent.climbing_route),
+        @ascent.climbing_route
+      ),
       notice: 'Ascent was successfully added to database.'
     else
       render :new, notice: 'Missing fields'
@@ -51,6 +47,7 @@ class AscentsController < ApplicationController
   end
 
   private
+
   def set_ascent
     @ascent = Ascent.find(params[:id])
   end

@@ -1,3 +1,5 @@
+inherit_from: .rubocop_todo.yml
+
 AlignParameters:
   Enabled: false
 ClassLength:
@@ -22,7 +24,7 @@ Metrics/ParameterLists:
     - 'spec/features/**/*'
 
 AllCops:
-  TargetRubyVersion: 2.4.3
+  TargetRubyVersion: 2.4
   Exclude:
     - 'bin/*'
     - 'db/**/*'
@@ -67,4 +69,6 @@ Style/ClassAndModuleChildren:
 Style/DateTime:
   Enabled: false
 Style/EmptyMethod:
+  Enabled: false
+Style/SymbolArray:
   Enabled: false
