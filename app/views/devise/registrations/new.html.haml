@@ -4,32 +4,16 @@
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = devise_error_messages!
       .row
-        .col-md-10
-          .form-group
-            = f.label :email
-            %br/
-            = f.email_field :email, autocomplete: "email", class: 'form-control'
-        .col-md-10
-          .form-group
-            = f.label :first_name
-            %br/
-            = f.text_field :first_name, autocomplete: "first_name", class: 'form-control'
-        .col-md-10
-          .form-group
-            = f.label :last_name
-            %br/
-            = f.text_field :last_name, autocomplete: "last_name", class: 'form-control'
-        .col-md-10
-          .form-group
-            = f.label :password
-            - if @minimum_password_length
-              %em
-                (#{@minimum_password_length} characters minimum)
-            %br/
-            = f.password_field :password, autocomplete: "off", class: 'form-control'
-          .form-group
-            = f.label :password_confirmation
-            %br/
-            = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
-          .form-group
-            = f.submit "Sign up", class: 'btn btn-primary btn-block'
+        .col-md-12
+          = f.email_field :email, autocomplete: "email", class: 'form-control', autofocus: true, placeholder: 'Email'
+        .col-md-6
+          = f.text_field :first_name, autocomplete: "first_name", class: 'form-control', placeholder: 'First name'
+        .col-md-6
+          = f.text_field :last_name, autocomplete: "last_name", class: 'form-control', placeholder: 'Last name'
+        .col-md-6
+          = f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: "Password #{@minimum_password_length} characters minimum"
+        .col-md-6
+          = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Password confirmation'
+        .col-md-6
+        .form-group.col-md-6
+          = f.submit "Sign up", class: 'btn btn-success btn-block'
