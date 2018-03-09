@@ -1,22 +1,17 @@
-.jumbotron.jumbotron-fluid
+.jumbotron
   .container
-    .rows
-      %h2 Log in
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        .field.form-group
-          .col-md-4
-            = f.label :email
-          .col-md-4
-            = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
-        .field.form-group
-          .col-md-4
-            = f.label :password
-          .col-md-4
-            = f.password_field :password, autocomplete: "off", class: 'form-control'
+    %h2 Log in
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .row
+        .col-md-6
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email'
+        .col-md-6
+          = f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password'
         - if devise_mapping.rememberable?
-          .field.form-group
-          .col-md-4
+          .col-md-6
+          .col-md-6
             = f.check_box :remember_me
             = f.label :remember_me
-        .actions
-          = f.submit "Log in", class: 'btn btn-success'
+        .col-md-6
+        .actions.col-md-6
+          = f.submit "Log in", class: 'btn btn-success btn-block'
