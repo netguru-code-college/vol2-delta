@@ -89,7 +89,7 @@ table
   margin: auto;
 }
 
-a 
+a
 {
   color: white;
 }
@@ -97,4 +97,12 @@ a
 a:hover
 {
     color: #036;
+}
+
+.form-control {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.form-group{
+  left: -10px;
 }
