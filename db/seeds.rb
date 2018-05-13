@@ -27,7 +27,11 @@ Crag.all.each do |crag|
 end
 puts "#{Sector.all.count} sectors created"
 
-
+User.create(email: 'user@example.com',
+            first_name: Faker::Name.first_name,
+            last_name: Faker::Name.last_name,
+            password: 'password',
+            password_confirmation: 'password')
 
 10.times do
   User.create(email: Faker::Internet.email,
