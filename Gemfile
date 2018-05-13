@@ -28,11 +28,12 @@ gem 'country_select', '~> 2.5', '>= 2.5.2'
 gem 'kaminari'
 gem 'listen', '>= 3.0.5', '< 3.2'
 gem 'bundler-audit', '~> 0.6.0'
-
+gem 'omniauth-facebook', '~> 5.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails', '~> 0.3.6'
+  gem 'dotenv-rails'
 end
 
 group :development do
