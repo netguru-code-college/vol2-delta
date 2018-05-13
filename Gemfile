@@ -15,7 +15,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
-gem 'rails', '~> 5.1.5'
+gem 'rails', '~> 5.2'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -25,8 +25,9 @@ gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'rubocop', '~> 0.52.1'
 gem 'countries', '~> 1.2', '>= 1.2.5'
 gem 'country_select', '~> 2.5', '>= 2.5.2'
-gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'master'
+gem 'kaminari'
 gem 'listen', '>= 3.0.5', '< 3.2'
+gem 'bundler-audit', '~> 0.6.0'
 
 
 group :development, :test do
