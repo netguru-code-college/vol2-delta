@@ -2,7 +2,7 @@ module AscentServices
   class CalculateUserTotalPoints < ApplicationService
     def call(ascent:)
       @ascent = ascent
-      
+
       calculate_user_total_points
     end
 

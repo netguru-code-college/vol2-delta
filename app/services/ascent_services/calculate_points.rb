@@ -2,7 +2,7 @@ module AscentServices
   class CalculatePoints < ApplicationService
     def call(ascent:)
       @ascent = ascent
-      
+
       calculate_points
     end
 
