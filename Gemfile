@@ -21,7 +21,7 @@ gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 1.3.0'
 gem 'underscore-rails'
-gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+gem 'faker'
 gem 'rubocop', '~> 0.52.1'
 gem 'countries', '~> 1.2', '>= 1.2.5'
 gem 'country_select', '~> 2.5', '>= 2.5.2'
@@ -40,4 +40,11 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
