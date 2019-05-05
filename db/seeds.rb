@@ -18,7 +18,7 @@ Crag.all.each do |crag|
   10.times do
     Sector.create(
       name: Faker::BossaNova.song,
-      aspect: Faker::Cat.breed,
+      aspect: Faker::Lorem.word,
       latitude: Faker::Address.latitude,
       longitude: Faker::Address.longitude,
       crag_id: crag.id

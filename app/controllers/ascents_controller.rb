@@ -19,9 +19,9 @@ class AscentsController < ApplicationController
 
   def create
     @ascent = Ascent.new(ascent_params)
-    AscentServices::CalculatePoints.new(ascent: @ascent).call
     if @ascent.save
-      AscentServices::CalculateUserTotalPoints.new(ascent: @ascent).call
+      AscentServices::CalculatePoints.call(ascent: @ascent)
+      AscentServices::CalculateUserTotalPoints.call(ascent: @ascent)
       redirect_to crag_sector_climbing_route_path(
         @ascent.climbing_route.sector.crag,
         @ascent.climbing_route.sector,
@@ -35,15 +35,19 @@ class AscentsController < ApplicationController
 
   def update
     if @ascent.update(ascent_params)
-      redirect_to show_user_path(current_user), notice: 'Ascent was successfully updated.'
+      redirect_to show_user_path(current_user),
+      notice: 'Ascent was successfully updated.'
     else
       render :edit
     end
   end
 
   def destroy
+    return unless current_user == @ascent.user
+
     @ascent.destroy
-    redirect_to show_user_path(current_user), notice: 'Ascent was successfully deleted.'
+    redirect_to show_user_path(current_user),
+    notice: 'Ascent was successfully deleted.'
   end
 
   private
